@@ -1,6 +1,7 @@
 package eng;
 
 import java.awt.GridLayout;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -67,6 +68,36 @@ public class ModifyAttend {
 		p3_modifyattend.add(tf_w15_modifyattend);
 		p3_modifyattend.add(tf_w16_modifyattend);
 		
-		
+		ActionListener listener = l -> {
+			try {
+				if(l.getSource() == save_modifyattend) {
+					int stunum = Integer.parseInt(tf_std_num_modifyattend.getText());
+					
+						int i1 = Integer.parseInt(tf_w1_modifyattend.getText());
+						int i2 = Integer.parseInt(tf_w2_modifyattend.getText());
+						int i3 = Integer.parseInt(tf_w3_modifyattend.getText());
+						int i4 = Integer.parseInt(tf_w4_modifyattend.getText());
+						int i5 = Integer.parseInt(tf_w5_modifyattend.getText());
+						int i6 = Integer.parseInt(tf_w6_modifyattend.getText());
+						int i7 = Integer.parseInt(tf_w7_modifyattend.getText());
+						int i8 = Integer.parseInt(tf_w8_modifyattend.getText());
+						int i9 = Integer.parseInt(tf_w9_modifyattend.getText());
+						int i10 = Integer.parseInt(tf_w10_modifyattend.getText());
+						int i11 = Integer.parseInt(tf_w11_modifyattend.getText());
+						int i12 = Integer.parseInt(tf_w12_modifyattend.getText());
+						int i13 = Integer.parseInt(tf_w13_modifyattend.getText());
+						int i14 = Integer.parseInt(tf_w14_modifyattend.getText());
+						int i15 = Integer.parseInt(tf_w15_modifyattend.getText());
+						int i16 = Integer.parseInt(tf_w16_modifyattend.getText());
+
+						s.addAttendence(s.getName(), stunum, i1, i2, i3, i4, i5, i6, i7, i8, i9, i10, i11, i12, i13, i14, i15, i16);
+						s.viewAttend();
+					}
+				}
+				catch(Exception e) {
+					tf_std_num_modifyattend.setText("에러발생 ");
+				}
+		};
+		save_modifyattend.addActionListener(listener);
 	}
 }
