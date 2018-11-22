@@ -7,12 +7,6 @@ public class Subject {
 	private int[] weight = {15,15,15,15,10,10,10,10};
 	private int[] ratio = {25,25,10,10,10,10,10};
 	
-	int total_mid = 0;
-	int total_last = 0;
-	int total_quiz = 0;
-	int total_assign = 0;
-	int total_report = 0;
-	int total_presentation = 0;
 
 	ArrayList<Student> std_list;
 	public static ArrayList<Score> score_list;
@@ -78,7 +72,7 @@ public class Subject {
 				x.setPresent(this.name, pres);
 				x.setReport(this.name, report);
 				x.setAttend(this.name, attend);
-				
+				this.calRank();
 				return;
 			}
 			
@@ -138,46 +132,65 @@ public class Subject {
 			}
 		});
 	}
+	// 등수 계산 
+	public void calRank() {
+		Score temp = score_list.get(0);
+		for(int i = 0; i < score_list.size(); i++) {
+			for(int j = i; j < score_list.size(); j++) {
+				if(temp.getTotal_score(this.name) < score_list.get(j).getTotal_score(this.name)) {
+					temp = score_list.get(j);
+				}
+			}
+		}
+		
+	}
 	
+	// 등급 계산 
 	public void calGrade() {
-	
+		for(Score score : score_list) {
+			
+		}
 	}
 
 	public double calAverofMid() {
-		score_list.forEach((x)->{
-			total_mid += x.getMid(name);
-		});
+		int total_mid = 0;
+		for(Score score : score_list) {
+			total_mid += score.getMid(this.name);
+		}
 		
 		return total_mid /std_list.size();
 	}
 	public double calAverofLast() {
-		score_list.forEach((x)->{
-			total_last += x.getLast(name);
-		});
-		
+		int total_last = 0;
+		for(Score score : score_list) {
+			total_last += score.getLast(this.name);
+		}
 		return total_last /std_list.size();
 	}
 	public double calAverofAssignment() {
-		score_list.forEach((x)->{
-			total_assign += x.getAssign(name);
-		});
-		
+		int total_assign = 0;
+		for(Score score : score_list) {
+			total_assign += score.getAssign(this.name);
+		}
 		return total_assign /std_list.size();
 	}
 	public double calAverofReport() {
-		score_list.forEach((x)->{
-			total_report += x.getMid(name);
-		});
-		
+		int total_report = 0;
+		for(Score score : score_list) {
+			total_report += score.getReport(this.name);
+		}
 		return total_report /std_list.size();
 	}
 	
 	public double calAverofPresentation() {
-		score_list.forEach((x)->{
-			total_presentation += x.getMid(name);
-		});
-		
-		return total_presentation /std_list.size();
+		int total_presentation = 0;
+		for(Score score : score_list) {
+			total_presentation += score.getPresent(this.name);
+		}return total_presentation /std_list.size();
+	}
+	
+	public double calAverofTotal() {
+		return 1.1;
 	}
 	
 	// 표준편차 계산
@@ -239,6 +252,7 @@ public class Subject {
 		}
 		return grade;
 	}
+	
 	
 }
 

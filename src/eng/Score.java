@@ -12,7 +12,8 @@ public class Score {
 	private Map<String, Integer> quiz; //퀴즈
 	private Map<String, Integer> presentation; //발표
 	private Map<String, String> grade; // 등급 
-	private Map<String, Integer> total_score;
+	private Map<String, Double> total_score;
+	private int rank;
 	
 	
 	Score(String subj, int std_num){
@@ -25,15 +26,15 @@ public class Score {
 		quiz=new HashMap <String, Integer>(); //퀴즈
 		presentation= new HashMap <String, Integer>(); //발표
 		grade = new HashMap <String	,String>(); // 등급 
-		total_score = new HashMap <String, Integer>();	// 총점 
+		total_score = new HashMap <String, Double>();	// 총점 
 		
 		
 	}
-	public void setTotal(String sbj_name) {
-		total_score.put(sbj_name, (mid.get(sbj_name)) + (last.get(sbj_name))+ (assignment.get(sbj_name)) +(report.get(sbj_name))
-				+ quiz.get(sbj_name)+presentation.get(sbj_name) + (attend.get(sbj_name)));
+/*	public void setTotal(String sbj_name) {
+		total_score.put(sbj_name, (double) ((mid.get(sbj_name)) + (last.get(sbj_name))+ (assignment.get(sbj_name)) +(report.get(sbj_name))
+				+ quiz.get(sbj_name)+presentation.get(sbj_name) + (attend.get(sbj_name))));
 	}
-	// 중간 setter
+*/	// 중간 setter
 	public void setMid(String sbj_name, int score) {
 		this.mid.put(sbj_name, score);
 	}
@@ -90,10 +91,6 @@ public class Score {
 		return this.attend.get(sbj_name);
 	}
 	
-	// 등급 계산
-	public void calGrade() {
-		
-	}
 	
 	public String getGrade(String sbj_name) {
 		return grade.get(sbj_name);
@@ -106,5 +103,16 @@ public class Score {
 	public void setStd_num(int std_num) {
 		this.std_num = std_num;
 	}
+	public Double getTotal_score(String sbj_name) {
+		return total_score.get(sbj_name);
+	}
+	public int getRank() {
+		return rank;
+	}
+	public void setRank(int rank) {
+		this.rank = rank;
+	}
+	
+	
 	
 }
