@@ -137,14 +137,15 @@ public class Subject {
 		Score temp = score_list.get(0);
 		for(int i = 0; i < score_list.size(); i++) {
 			for(int j = i; j < score_list.size(); j++) {
-				if(temp.getTotal_score(this.name) < score_list.get(j).getTotal_score(this.name)) {
+				if(temp.getRank() != 0) {
+					continue;
+				}else if((temp.getTotal_score(this.name) < score_list.get(j).getTotal_score(this.name))) {
 					temp = score_list.get(j);
 				}
 			}
+			temp.setRank(i+1);
 		}
-		
 	}
-	
 	// 등급 계산 
 	public void calGrade() {
 		for(Score score : score_list) {
@@ -187,6 +188,13 @@ public class Subject {
 		for(Score score : score_list) {
 			total_presentation += score.getPresent(this.name);
 		}return total_presentation /std_list.size();
+	}
+	
+	public double calAverofQuiz() {
+		int total_quiz = 0;
+		for(Score score : score_list) {
+			total_quiz += score.getQuiz(this.name);
+		}return total_quiz /std_list.size();
 	}
 	
 	public double calAverofTotal() {

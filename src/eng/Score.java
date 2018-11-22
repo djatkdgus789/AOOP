@@ -13,7 +13,7 @@ public class Score {
 	private Map<String, Integer> presentation; //발표
 	private Map<String, String> grade; // 등급 
 	private Map<String, Double> total_score;
-	private int rank;
+	private int rank = 0;
 	
 	
 	Score(String subj, int std_num){
