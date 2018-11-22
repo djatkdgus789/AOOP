@@ -86,6 +86,7 @@ public class Subject {
 		s.setReport(this.name, report);
 		s.setAttend(this.name, attend);
 		score_list.add(s);
+		calRank();
 	}
 	
 	public void addAttendence(String sbj_name, int std_num, int i1, int i2, int i3, int i4, int i5, int i6, int i7, int i8
@@ -136,16 +137,27 @@ public class Subject {
 	public void calRank() {
 		Score temp = score_list.get(0);
 		for(int i = 0; i < score_list.size(); i++) {
-			for(int j = i; j < score_list.size(); j++) {
-				if(temp.getRank() != 0) {
+			for(int j = 0; j < score_list.size(); j++) {
+				if(temp.getRank(this.name) != 0) {
 					continue;
 				}else if((temp.getTotal_score(this.name) < score_list.get(j).getTotal_score(this.name))) {
 					temp = score_list.get(j);
 				}
 			}
-			temp.setRank(i+1);
+			temp.setRank(this.name, i+1);
 		}
 	}
+	
+	public int getRank(int std_num) {
+		int temp = 0;
+		for(Score score : score_list) {
+			if(score.getStd_num() == std_num) {
+				return score.getRank(this.name);
+			}
+		}
+		return temp;
+	}
+	
 	// 등급 계산 
 	public void calGrade() {
 		for(Score score : score_list) {
@@ -255,7 +267,7 @@ public class Subject {
 		String grade = "";
 		for(Score score : score_list) {
 			if(score.getStd_num() == std_num) {
-				grade = score.getGrade(this.name);
+				return score.getGrade(this.name);
 			}
 		}
 		return grade;

@@ -13,8 +13,7 @@ public class Score {
 	private Map<String, Integer> presentation; //발표
 	private Map<String, String> grade; // 등급 
 	private Map<String, Double> total_score;
-	private int rank = 0;
-	
+	private Map<String, Integer> rank;
 	
 	Score(String subj, int std_num){
 		this.setStd_num(std_num);
@@ -27,7 +26,7 @@ public class Score {
 		presentation= new HashMap <String, Integer>(); //발표
 		grade = new HashMap <String	,String>(); // 등급 
 		total_score = new HashMap <String, Double>();	// 총점 
-		
+		rank = new HashMap <String, Integer>();
 		
 	}
 /*	public void setTotal(String sbj_name) {
@@ -106,11 +105,11 @@ public class Score {
 	public Double getTotal_score(String sbj_name) {
 		return total_score.get(sbj_name);
 	}
-	public int getRank() {
-		return rank;
+	public int getRank(String key) {
+		return rank.get(key);
 	}
-	public void setRank(int rank) {
-		this.rank = rank;
+	public void setRank(String sbj_name, int rank) {
+		this.rank.put(sbj_name, rank);
 	}
 	
 	
