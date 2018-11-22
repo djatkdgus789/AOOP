@@ -70,7 +70,7 @@ public class Subject {
 	// 성적 입력,수정 F017~18
 	public void addScore(int std_num, int mid, int last, int assign ,int quiz, int pres, int report, int attend) {
 		score_list.forEach((x)->{
-			if((x.std_num)==(std_num)) {
+			if((x.getStd_num())==(std_num)) {
 				x.setMid(this.name, (mid));
 				x.setLast(this.name, (last));
 				x.setAssign(this.name, (assign));
@@ -143,28 +143,44 @@ public class Subject {
 	
 	}
 
-	public double calAverofmid() {
+	public double calAverofMid() {
 		score_list.forEach((x)->{
 			total_mid += x.getMid(name);
 		});
 		
 		return total_mid /std_list.size();
 	}
-	public double calAveroflast() {
+	public double calAverofLast() {
 		score_list.forEach((x)->{
-			total_mid += x.getLast(name);
+			total_last += x.getLast(name);
 		});
 		
-		return total_mid /std_list.size();
+		return total_last /std_list.size();
 	}
-	public double calAverof() {
+	public double calAverofAssignment() {
 		score_list.forEach((x)->{
-			total_mid += x.getMid(name);
+			total_assign += x.getAssign(name);
 		});
 		
-		return total_mid /std_list.size();
+		return total_assign /std_list.size();
 	}
-	// 표준편차 계
+	public double calAverofReport() {
+		score_list.forEach((x)->{
+			total_report += x.getMid(name);
+		});
+		
+		return total_report /std_list.size();
+	}
+	
+	public double calAverofPresentation() {
+		score_list.forEach((x)->{
+			total_presentation += x.getMid(name);
+		});
+		
+		return total_presentation /std_list.size();
+	}
+	
+	// 표준편차 계산
 	public void calDevi() {
 	} 
 	
@@ -181,12 +197,12 @@ public class Subject {
 		});
 		score_list.forEach((x)->{
 			System.out.print(x.getMid(this.name));
-			System.out.print(x.last);
-			System.out.print(x.assignment);
-			System.out.print(x.quiz);
-			System.out.print(x.presentation);
-			System.out.print(x.report);
-			System.out.println(x.attend);
+			System.out.print(x.getLast(this.name));
+			System.out.print(x.getAssign(this.name));
+			System.out.print(x.getQuiz(this.name));
+			System.out.print(x.getPresent(this.name));
+			System.out.print(x.getReport(this.name));
+			System.out.println(x.getAttend(this.name));
 		});
 	}
 	public void viewAttend() {
@@ -212,7 +228,17 @@ public class Subject {
 
 	public void setRatio(int[] ratio) {
 		this.ratio = ratio;
-	}	
+	}
+	// 해당 학생의 등급을 반환 
+	public String getStdGrade(int std_num) {
+		String grade = "";
+		for(Score score : score_list) {
+			if(score.getStd_num() == std_num) {
+				grade = score.getGrade(this.name);
+			}
+		}
+		return grade;
+	}
 	
 }
 

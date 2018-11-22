@@ -31,7 +31,7 @@ public class Attend {
 		attend[14] = i15;
 		attend[15] = i16;
 	}
-	//점수 계
+	//점수 
 	public int getScore() {
 		int score = 48;
 		for (int i : attend) {

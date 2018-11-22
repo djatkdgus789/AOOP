@@ -3,20 +3,20 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Score {
-	public int std_num;
-	public Map<String, Integer> attend; // 출석 점수	
-	public Map<String, Integer> mid; // 중간고사 점수
-	public Map<String, Integer> last; // 기말고사 점수
-	public Map<String, Integer> assignment; // 과제
-	public Map<String, Integer> report; //보고서
-	public Map<String, Integer> quiz; //퀴즈
-	public Map<String, Integer> presentation; //발표
-	public Map<String, String> grade; // 등급 
-	public Map<String, Integer> total_score;
+	private int std_num;
+	private Map<String, Integer> attend; // 출석 점수	
+	private Map<String, Integer> mid; // 중간고사 점수
+	private Map<String, Integer> last; // 기말고사 점수
+	private Map<String, Integer> assignment; // 과제
+	private Map<String, Integer> report; //보고서
+	private Map<String, Integer> quiz; //퀴즈
+	private Map<String, Integer> presentation; //발표
+	private Map<String, String> grade; // 등급 
+	private Map<String, Integer> total_score;
 	
 	
 	Score(String subj, int std_num){
-		this.std_num = std_num;
+		this.setStd_num(std_num);
 		attend = new HashMap <String, Integer>();
 		mid = new HashMap <String, Integer>(); // 중간고사 점수
 		last = new HashMap <String, Integer>(); // 기말고사 점수
@@ -89,4 +89,22 @@ public class Score {
 	public int getAttend(String sbj_name) {
 		return this.attend.get(sbj_name);
 	}
+	
+	// 등급 계산
+	public void calGrade() {
+		
+	}
+	
+	public String getGrade(String sbj_name) {
+		return grade.get(sbj_name);
+	}
+	// 학번 getter
+	public int getStd_num() {
+		return std_num;
+	}
+	// 학번 setter
+	public void setStd_num(int std_num) {
+		this.std_num = std_num;
+	}
+	
 }
