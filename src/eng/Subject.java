@@ -85,8 +85,9 @@ public class Subject {
 		s.setPresent(this.name, pres);
 		s.setReport(this.name, report);
 		s.setAttend(this.name, attend);
+		s.setRank(this.name, 0);
 		score_list.add(s);
-		calRank();
+		this.calRank();
 	}
 	
 	public void addAttendence(String sbj_name, int std_num, int i1, int i2, int i3, int i4, int i5, int i6, int i7, int i8

@@ -16,7 +16,7 @@ public class Test {
 		s = new Student("밥상", 60171523, 1,"ㅇㄹ");
 		f.s.addStudent(s);
 		System.out.println(f.s.std_list.size());
-		f.s.addScore(60152208, 10, 10, 10, 10, 10, 10, 10);
+		f.s.addScore(60152208, 30, 10, 10, 10, 10, 10, 10);
 		f.s.addScore(60152215, 20, 20, 20, 20, 20, 20, 20);
 		f.s.addScore(60171523, 30, 30, 30, 30, 30, 30, 30);
 //		web.addAttendence("web", 60152208,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0);
@@ -27,8 +27,7 @@ public class Test {
 //		
 //		web.sort_mid_Score_Ascending();
 		f.s.view("web");
-		System.out.println(f.s.calAverofLast());
-		
+		f.s.getRank(60152208);
 		f.s.viewAttend();
 	}
 

@@ -314,17 +314,32 @@ public class Frame extends JFrame implements ActionListener{
 		case "Rank":
 			new Rank(s);
 			break;
-		case "Average of Mid":
-			tf_selectedMenu.setText(Double.toString(s.calAverofMid()));
-		case "Average of Last":
-			//System.out.println(s.std_list.size());
-			tf_selectedMenu.setText(Double.toString(s.calAverofLast()));
-
 		case "Average of Total":
-			//tf_selectedMenu.setText();
-			
+			tf_selectedMenu.setText("총점의 평균 : " + Double.toString(s.calAverofTotal()));
 			break;
+			
+		case "Average of Mid":
+			tf_selectedMenu.setText("중간고사 평균 : " + Double.toString(s.calAverofMid()));
+			break;
+			
+		case "Average of Last":
+			tf_selectedMenu.setText("기말고사 평균 : " + Double.toString(s.calAverofLast()));
+			break;
+			
+		case "Average of Quiz":
+			tf_selectedMenu.setText("퀴즈 평균 : "+Double.toString(s.calAverofQuiz()));
+			break;
+			
+		case "Average of Pres":
+			tf_selectedMenu.setText("발표점수 평균 : "+Double.toString(s.calAverofPresentation()));
+			break;
+			
+		case "Average of Report":
+			tf_selectedMenu.setText("기말고사 평균 : "+Double.toString(s.calAverofReport()));	
+			break;
+			
 		case "Graph for mid":
+			
 			new Gragh();
 	        break;
 	        
