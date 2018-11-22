@@ -4,8 +4,8 @@ import java.util.Comparator;
 
 public class Subject {
 	private String name;
-	private int[] weight = {15,15,15,15,10,10,10,10};
-	private int[] ratio = {25,25,10,10,10,10,10};
+	private int[] ratio = {15,15,15,15,10,10,10,10};
+	private int[] weight = {25,25,10,10,10,10,10};
 	
 
 	public ArrayList<Student> std_list;
@@ -72,6 +72,7 @@ public class Subject {
 				x.setPresent(this.name, pres);
 				x.setReport(this.name, report);
 				x.setAttend(this.name, attend);
+				this.calTotal(std_num);
 				this.calRank();
 				return;
 			}
@@ -87,6 +88,7 @@ public class Subject {
 		s.setAttend(this.name, attend);
 		s.setRank(this.name, 0);
 		score_list.add(s);
+		this.calTotal(std_num);
 		this.calRank();
 	}
 	
@@ -166,6 +168,29 @@ public class Subject {
 		}
 	}
 
+	public void calTotal(int std_num) {
+		for(Score score : score_list) {
+			if(score.getStd_num() == std_num) {
+/*				
+				weight[0] = mid;
+				weight[1] = last;
+				weight[2] = assign;
+				weight[3] = quiz;
+				weight[4] = pres;
+				weight[5] = report;
+				weight[6] = attend;
+*/	
+				score.addTotal_score(this.name, score.getMid(this.name) * this.weight[0]);
+				score.addTotal_score(this.name, score.getLast(this.name) * this.weight[1]);
+				score.addTotal_score(this.name, score.getAssign(this.name) * this.weight[2]);
+				score.addTotal_score(this.name, score.getQuiz(this.name) * this.weight[3]);
+				score.addTotal_score(this.name, score.getPresent(this.name) * this.weight[4]);
+				score.addTotal_score(this.name, score.getReport(this.name) * this.weight[5]);
+				score.addTotal_score(this.name, score.getAttend(this.name) * this.weight[6]);
+			}
+		}
+	}
+	
 	public double calAverofMid() {
 		int total_mid = 0;
 		for(Score score : score_list) {
@@ -210,8 +235,12 @@ public class Subject {
 		}return total_quiz /std_list.size();
 	}
 	
-	public double calAverofTotal() {
-		return 1.1;
+	public double getAverofTotal() {
+		int total_total = 0;
+		for(Score score : score_list) {
+			total_total += score.getTotal_score(this.name);
+		}
+		return total_total / std_list.size();
 	}
 	
 	// 표준편차 계산

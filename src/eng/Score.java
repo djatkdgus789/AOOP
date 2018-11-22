@@ -105,6 +105,11 @@ public class Score {
 	public Double getTotal_score(String sbj_name) {
 		return total_score.get(sbj_name);
 	}
+	public void addTotal_score(String sbj_name, int score) {
+		double current_score = total_score.get(sbj_name);
+		total_score.put(sbj_name, current_score + score);
+	}
+	
 	public int getRank(String key) {
 		return rank.get(key);
 	}
