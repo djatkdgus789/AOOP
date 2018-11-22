@@ -314,6 +314,16 @@ public class Frame extends JFrame implements ActionListener{
 		case "Rank":
 			new Rank(s);
 			break;
+		case "Average of Mid":
+			tf_selectedMenu.setText(Double.toString(s.calAverofMid()));
+		case "Average of Last":
+			//System.out.println(s.std_list.size());
+			tf_selectedMenu.setText(Double.toString(s.calAverofLast()));
+
+		case "Average of Total":
+			//tf_selectedMenu.setText();
+			
+			break;
 		case "Graph for mid":
 			new Gragh();
 	        break;

@@ -14,13 +14,13 @@ public class Subject {
 	int total_report = 0;
 	int total_presentation = 0;
 
-	ArrayList<Student> std_list;
+	public ArrayList<Student> std_list;
 	public static ArrayList<Score> score_list;
 	
 	// 과목 생성자 F009~11
 	public Subject(String name){
 		this.name = name;
-		this.std_list = new ArrayList<Student>();
+		this.std_list = new ArrayList<Student>(); 
 	}
 	
 	static {
@@ -54,7 +54,7 @@ public class Subject {
 
 	// 학생 추가 F012
 	public void addStudent(Student s) {
-		std_list.add(s);
+		this.std_list.add(s);
 	}
 
 	// 학생 삭제 

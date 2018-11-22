@@ -40,7 +40,7 @@ public class Calcgrade {
 				if(l.getSource() == calc) {
 					int stunum = Integer.parseInt(tf_stunum_enter.getText());
 					
-					//tf_grade.setText(s.getStdgrade(stunum));
+					tf_grade.setText(s.getStdGrade(stunum));
 				}
 			}
 			catch(Exception e){
