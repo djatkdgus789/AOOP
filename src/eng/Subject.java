@@ -8,11 +8,16 @@ public class Subject {
 	private int[] ratio = {25,25,10,10,10,10,10};
 	
 	int total_mid = 0;
+	int total_last = 0;
+	int total_quiz = 0;
+	int total_assign = 0;
+	int total_report = 0;
+	int total_presentation = 0;
 
 	ArrayList<Student> std_list;
 	public static ArrayList<Score> score_list;
 	
-	// 과목 생성자
+	// 과목 생성자 F009~11
 	public Subject(String name){
 		this.name = name;
 		this.std_list = new ArrayList<Student>();
@@ -62,7 +67,7 @@ public class Subject {
 //	}
 // ConcurrentModificationException 발생  
 	
-	// 점수 객체 추가
+	// 성적 입력,수정 F017~18
 	public void addScore(int std_num, int mid, int last, int assign ,int quiz, int pres, int report, int attend) {
 		score_list.forEach((x)->{
 			if((x.std_num)==(std_num)) {
@@ -88,6 +93,7 @@ public class Subject {
 		s.setAttend(this.name, attend);
 		score_list.add(s);
 	}
+	
 	public void addAttendence(String sbj_name, int std_num, int i1, int i2, int i3, int i4, int i5, int i6, int i7, int i8
 			, int i9, int i10, int i11, int i12, int i13, int i14, int i15, int i16) {
 		std_list.forEach((s)->{
@@ -144,6 +150,20 @@ public class Subject {
 		
 		return total_mid /std_list.size();
 	}
+	public double calAveroflast() {
+		score_list.forEach((x)->{
+			total_mid += x.getLast(name);
+		});
+		
+		return total_mid /std_list.size();
+	}
+	public double calAverof() {
+		score_list.forEach((x)->{
+			total_mid += x.getMid(name);
+		});
+		
+		return total_mid /std_list.size();
+	}
 	// 표준편차 계
 	public void calDevi() {
 	} 
@@ -192,7 +212,7 @@ public class Subject {
 
 	public void setRatio(int[] ratio) {
 		this.ratio = ratio;
-	}
+	}	
 	
 }
 

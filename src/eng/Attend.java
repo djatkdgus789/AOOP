@@ -1,17 +1,18 @@
 package eng;
 
-
+//출석을 관
 public class Attend {
 	private static final int ABSENCE = -3;
 	private static final int lATE = -1;
 	private static final int ATTENDANCE = 0;
 	
-	int[] attend;
+	int[] attend; //출석을 저장할 int형 변
 	
+	//출석 생성자 기본 16주
 	Attend(){
 		attend = new int[16];
 	}
-	
+	//출석입력,수정 F001, F002
 	public void check(int i1, int i2, int i3, int i4, int i5, int i6, int i7, int i8, int i9, int i10, int i11, int i12, int i13, int i14, int i15, int i16) {
 		attend[0] = i1;
 		attend[1] = i2;
@@ -30,6 +31,7 @@ public class Attend {
 		attend[14] = i15;
 		attend[15] = i16;
 	}
+	//점수 계
 	public int getScore() {
 		int score = 48;
 		for (int i : attend) {
@@ -48,7 +50,7 @@ public class Attend {
 		}
 		return score;
 	}
-
+	//출석 getter
 	public int[] getAttend() {
 		return attend;
 	}
