@@ -245,6 +245,10 @@ public class Frame extends JFrame implements ActionListener{
 		
 		// f006
 		switch (mi.getText()) {
+		case "Exit":
+			System.exit(0);
+			break;
+			
 		case "WEBPROG":
 			tf_current_subj.setText("WEBPROG");
 			s = java.get("web");
@@ -340,7 +344,7 @@ public class Frame extends JFrame implements ActionListener{
 			
 		case "Graph for mid":
 			
-			new Gragh();
+			new Gragh(s);
 	        break;
 	        
 	        
