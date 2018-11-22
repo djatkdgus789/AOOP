@@ -307,10 +307,15 @@ public class Frame extends JFrame implements ActionListener{
 		case "Modify score":
 			new Modifyscore(s);
 			break;
-		
+			
+		case "Calc grade":
+			new Calcgrade(s);
+			break;
+		case "Rank":
+			new Rank(s);
+			break;
 		case "Graph for mid":
 			new Gragh();
-			
 	        break;
 	        
 	        

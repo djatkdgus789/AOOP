@@ -11,14 +11,13 @@ import javax.swing.JTextField;
 
 public class ModifyAttend {
 	ModifyAttend(Subject s){
-		JFrame f_modifyattend = new JFrame("Enter Attend");
+		JFrame f_modifyattend = new JFrame("Modify Attend");
 		f_modifyattend.setSize(500, 200);
 		f_modifyattend.setVisible(true);
 		f_modifyattend.setLayout(new GridLayout(3,1,0,0));
 		JLabel 	jl_modifyattend = new JLabel("Enter Attendence in 1~16 Weeks");
 		JLabel jl_std_num_modifyattend = new JLabel("학번");
 		JButton save_modifyattend = new JButton("Modify");
-
 		
 		JTextField tf_std_num_modifyattend = new JTextField("",7);
 		JTextField tf_w1_modifyattend = new JTextField("", 1); 
