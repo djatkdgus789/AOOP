@@ -9,7 +9,6 @@ public class Subject {
 	
 
 	public ArrayList<Student> std_list;
-	public static ArrayList<Score> score_list;
 	
 	// 과목 생성자 F009~11
 	public Subject(String name){
@@ -17,9 +16,6 @@ public class Subject {
 		this.std_list = new ArrayList<Student>(); 
 	}
 	
-	static {
-	score_list = new ArrayList<Score>();
-	}
 	// 성적 비율 수정
 	public void changeRatio(int A_plus,int A_zero,	int B_plus,	int B_zero,	int C_plus,	int C_zero,	int D ,	int F ) {
 		ratio[0] = A_plus;
@@ -49,6 +45,7 @@ public class Subject {
 	// 학생 추가 F012
 	public void addStudent(Student s) {
 		this.std_list.add(s);
+		s.score.initScore(this.name);
 	}
 
 	// 학생 삭제 
@@ -62,34 +59,33 @@ public class Subject {
 // ConcurrentModificationException 발생  
 	
 	// 성적 입력,수정 F017~18
-	public void addScore(int std_num, int mid, int last, int assign ,int quiz, int pres, int report, int attend) {
-		score_list.forEach((x)->{
+	public void addScore(int std_num, int mid, int last, int assign ,int quiz, int pres, int report) {
+		std_list.forEach((x)->{
 			if((x.getStd_num())==(std_num)) {
-				x.setMid(this.name, (mid));
-				x.setLast(this.name, (last));
-				x.setAssign(this.name, (assign));
-				x.setQuiz(this.name, (quiz));
-				x.setPresent(this.name, pres);
-				x.setReport(this.name, report);
-				x.setAttend(this.name, attend);
-				//this.calTotal(std_num);
-				//this.calRank();
+				x.score.setMid(this.name, (mid));
+				x.score.setLast(this.name, (last));
+				x.score.setAssign(this.name, (assign));
+				x.score.setQuiz(this.name, (quiz));
+				x.score.setPresent(this.name, pres);
+				x.score.setReport(this.name, report);
+				//x.setAttend(this.name, attend);
+				this.calTotal(std_num);
+				this.calRank();
 				return;
 			}
 			
 		});
-		Score s = new Score(this.name,std_num);
+		/*Student student = new Student(name, num, team, unique)
 		s.setMid(this.name, (mid));
 		s.setLast(this.name, (last));
 		s.setAssign(this.name, (assign));
 		s.setQuiz(this.name, (quiz));
 		s.setPresent(this.name, pres);
 		s.setReport(this.name, report);
-		s.setAttend(this.name, attend);
+		//s.setAttend(this.name, attend);
 		s.setRank(this.name, 0);
-		score_list.add(s);
-		//this.calTotal(std_num);
-		//this.calRank();
+		this.calTotal(std_num);
+		this.calRank();*/
 	}
 	
 	public void addAttendence(String sbj_name, int std_num, int i1, int i2, int i3, int i4, int i5, int i6, int i7, int i8
@@ -99,6 +95,7 @@ public class Subject {
 				s.attend.check(i1, i2, i3, i4, i5, i6, i7, i8, i9, i10, i11, i12, i13, i14, i15, i16);
 			}
 		});
+
 	}
 
 	public String getName() {
@@ -111,10 +108,10 @@ public class Subject {
 	
 	//중간고사 오름차순 정렬
 	public void sort_mid_Score_Ascending() {
-		Subject.score_list.sort(new Comparator<Score>() {
+		this.std_list.sort(new Comparator<Student>() {
 			@Override
-			public int compare(Score o1, Score o2) {
-				if(o1.getMid(name) - o2.getMid(name) > 0) {
+			public int compare(Student o1, Student o2) {
+				if(o1.score.getMid(name) - o2.score.getMid(name) > 0) {
 					return 0;
 				} else {
 					return -1;
@@ -138,24 +135,24 @@ public class Subject {
 	}
 	// 등수 계산 
 	public void calRank() {
-		Score temp = score_list.get(0);
-		for(int i = 0; i < score_list.size(); i++) {
-			for(int j = 0; j < score_list.size(); j++) {
-				if(temp.getRank(this.name) != 0) {
+		Student temp = std_list.get(0);
+		for(int i = 0; i < std_list.size(); i++) {
+			for(int j = 0; j < std_list.size(); j++) {
+				if(temp.score.getRank(this.name) != 0) {
 					continue;
-				}else if((temp.getTotal_score(this.name) < score_list.get(j).getTotal_score(this.name))) {
-					temp = score_list.get(j);
+				}else if((temp.score.getTotal_score(this.name) < std_list.get(j).score.getTotal_score(this.name))) {
+					temp = std_list.get(j);
 				}
 			}
-			temp.setRank(this.name, i+1);
+			temp.score.setRank(this.name, i+1);
 		}
 	}
 	
 	public int getRank(int std_num) {
 		int temp = 0;
-		for(Score score : score_list) {
-			if(score.getStd_num() == std_num) {
-				return score.getRank(this.name);
+		for(Student student : std_list) {
+			if(student.getStd_num() == std_num) {
+				return student.score.getRank(this.name);
 			}
 		}
 		return temp;
@@ -163,14 +160,12 @@ public class Subject {
 	
 	// 등급 계산 
 	public void calGrade() {
-		for(Score score : score_list) {
-			
-		}
+		
 	}
 
 	public void calTotal(int std_num) {
-		for(Score score : score_list) {
-			if(score.getStd_num() == std_num) {
+		for(Student student : std_list) {
+			if(student.getStd_num() == std_num) {
 /*				
 				weight[0] = mid;
 				weight[1] = last;
@@ -179,66 +174,69 @@ public class Subject {
 				weight[4] = pres;
 				weight[5] = report;
 				weight[6] = attend;
-*/	
-				score.addTotal_score(this.name, score.getMid(this.name) * this.weight[0]);
-				score.addTotal_score(this.name, score.getLast(this.name) * this.weight[1]);
-				score.addTotal_score(this.name, score.getAssign(this.name) * this.weight[2]);
-				score.addTotal_score(this.name, score.getQuiz(this.name) * this.weight[3]);
-				score.addTotal_score(this.name, score.getPresent(this.name) * this.weight[4]);
-				score.addTotal_score(this.name, score.getReport(this.name) * this.weight[5]);
-				score.addTotal_score(this.name, score.getAttend(this.name) * this.weight[6]);
+*/		
+				double total = 0;
+				total += student.score.getMid(this.name) * weight[0];
+				total += student.score.getLast(this.name) * weight[1];
+				total += student.score.getAssign(this.name) * weight[2];
+				total += student.score.getQuiz(this.name) * weight[3];
+				total += student.score.getPresent(this.name) * weight[4];
+				total += student.score.getReport(this.name) * weight[5];
+				total += student.score.getAttend(this.name) * weight[6];
+				
+				student.score.setTotal_score(this.name, total/100);
 			}
 		}
 	}
 	
 	public double calAverofMid() {
 		int total_mid = 0;
-		for(Score score : score_list) {
-			total_mid += score.getMid(this.name);
+		for(Student student : std_list) {
+			total_mid += student.score.getMid(this.name);
 		}
 		
 		return total_mid /std_list.size();
 	}
 	public double calAverofLast() {
 		int total_last = 0;
-		for(Score score : score_list) {
-			total_last += score.getLast(this.name);
+		for(Student student : std_list) {
+			total_last += student.score.getLast(this.name);
 		}
 		return total_last /std_list.size();
 	}
 	public double calAverofAssignment() {
 		int total_assign = 0;
-		for(Score score : score_list) {
-			total_assign += score.getAssign(this.name);
+		for(Student student : std_list) {
+			total_assign += student.score.getAssign(this.name);
 		}
 		return total_assign /std_list.size();
 	}
 	public double calAverofReport() {
 		int total_report = 0;
-		for(Score score : score_list) {
-			total_report += score.getReport(this.name);
+		for(Student student : std_list) {
+			total_report += student.score.getReport(this.name);
 		}
 		return total_report /std_list.size();
 	}
 	
 	public double calAverofPresentation() {
 		int total_presentation = 0;
-		for(Score score : score_list) {
-			total_presentation += score.getPresent(this.name);
+		for(Student student : std_list) {
+			total_presentation += student.score.getPresent(this.name);
 		}return total_presentation /std_list.size();
 	}
 	
 	public double calAverofQuiz() {
 		int total_quiz = 0;
-		for(Score score : score_list) {
-			total_quiz += score.getQuiz(this.name);
+		for(Student student : std_list) {
+			total_quiz += student.score.getQuiz(this.name);
 		}return total_quiz /std_list.size();
 	}
 	
 	public double getAverofTotal() {
 		int total_total = 0;
-		for(Score score : score_list) {
-			total_total += score.getTotal_score(this.name);
+		for(Student student : std_list) {
+			total_total += student.score.getTotal_score(this.name);
 		}
 		return total_total / std_list.size();
 	}
@@ -258,23 +256,23 @@ public class Subject {
 			System.out.print("    ");
 			System.out.println(x.getTeam());
 		});
-		score_list.forEach((x)->{
-			System.out.print(x.getMid(this.name));
-			System.out.print(x.getLast(this.name));
-			System.out.print(x.getAssign(this.name));
-			System.out.print(x.getQuiz(this.name));
-			System.out.print(x.getPresent(this.name));
-			System.out.print(x.getReport(this.name));
-			System.out.println(x.getAttend(this.name));
+		std_list.forEach((x)->{
+			System.out.print(x.score.getMid(this.name));
+			System.out.print(x.score.getLast(this.name));
+			System.out.print(x.score.getAssign(this.name));
+			System.out.print(x.score.getQuiz(this.name));
+			System.out.print(x.score.getPresent(this.name));
+			System.out.print(x.score.getReport(this.name));
+			System.out.println(x.score.getAttend(this.name));
 		});
 	}
 	public void viewAttend() {
-		std_list.forEach((x)->{
-			for(int i :x.attend.getAttend()) {
+		/*std_list.forEach((x)->{
+			for(int i : x.score.getAttend(this.name)) {
 				System.out.print(i);
 			};
 			System.out.println(x.attend.getScore());
-		});
+		});*/
 	}
 
 	public int[] getWeight() {
@@ -295,9 +293,9 @@ public class Subject {
 	// 해당 학생의 등급을 반환 
 	public String getStdGrade(int std_num) {
 		String grade = "";
-		for(Score score : score_list) {
-			if(score.getStd_num() == std_num) {
-				return score.getGrade(this.name);
+		for(Student student : std_list) {
+			if(student.getStd_num() == std_num) {
+				return student.score.getGrade(this.name);
 			}
 		}
 		return grade;

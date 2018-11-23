@@ -6,12 +6,20 @@ public class Attend {
 	private static final int lATE = -1;
 	private static final int ATTENDANCE = 0;
 	
-	int[] attend; //출석을 저장할 int형 변
+	private int score;
+	
+	private int[] attend; //출석을 저장할 int형 변
 	
 	//출석 생성자 기본 16주
 	Attend(){
 		attend = new int[16];
+		score = 0;
 	}
+	
+	public void initAttend() {
+		this.score = 0;
+	}
+	
 	//출석입력,수정 F001, F002
 	public void check(int i1, int i2, int i3, int i4, int i5, int i6, int i7, int i8, int i9, int i10, int i11, int i12, int i13, int i14, int i15, int i16) {
 		attend[0] = i1;
@@ -31,9 +39,12 @@ public class Attend {
 		attend[14] = i15;
 		attend[15] = i16;
 	}
-	//점수 
-	public int getScore() {
-		int score = 48;
+	//점수 getter
+	public int getAttend() {
+		return score;
+	}
+	//출석 계산 
+	public void calAttend() {
 		for (int i : attend) {
 			if (i == 0) {
 				score += ATTENDANCE;
@@ -46,13 +57,8 @@ public class Attend {
 			}
 		}
 		if (score <= 48+ABSENCE*4) {
-			return 0;
+			score = 0;
 		}
-		return score;
-	}
-	//출석 getter
-	public int[] getAttend() {
-		return attend;
 	}
 
 	
