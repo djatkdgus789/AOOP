@@ -319,7 +319,7 @@ public class Frame extends JFrame implements ActionListener{
 			new Rank(s);
 			break;
 		case "Average of Total":
-			tf_selectedMenu.setText("총점의 평균 : " + Double.toString(s.calAverofTotal()));
+			tf_selectedMenu.setText("총점의 평균 : " + Double.toString(s.getAverofTotal()));
 			break;
 			
 		case "Average of Mid":

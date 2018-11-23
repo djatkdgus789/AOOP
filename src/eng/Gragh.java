@@ -1,6 +1,7 @@
 package eng;
 
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.GridLayout;
 import java.awt.Toolkit;
@@ -10,21 +11,43 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 public class Gragh extends JFrame{
-
+	int score0_9 = 0;
+	int score10_19= 0;
+	int score20_29= 0;
+	int score30_39= 0;
+	int score40_49= 0;
+	int score50_59= 0;
+	int score60_69= 0;
+	int score70_79= 0;
+	int score80_89= 0;
+	int score90_100= 0;
+	
 	public Gragh(Subject s){
 		// TODO Auto-generated constructor stub
-		int x[];
-		int y[];
 		
 		class Panel extends JPanel{
 			protected void paintComponent(Graphics g) {
 				super.paintComponent(g);
 				
+				g.setFont(new Font("",Font.BOLD,10));
 				g.drawLine(10, 10, 10, 210);
-				g.drawLine(10, 210, 210, 210);
-				g.drawRect(10, 110, 20, 10*10);
+			 	g.drawLine(10, 210, 210, 210);
+				g.drawString("0", 10, 220);
+				g.drawString("10", 25, 220);
+				g.drawString("20", 45, 220);
+				g.drawString("30", 65, 220);
+				g.drawString("40", 85, 220);
+				g.drawString("50", 105, 220);
+				g.drawString("60", 125, 220);
+				g.drawString("70", 145, 220);
+				g.drawString("80", 165, 220);
+				g.drawString("90", 185, 220);
+				g.drawString("100",205, 220);
+
+				
 				
 			}
+
 		}
 		add(new Panel());
 		setSize(300,300);
@@ -34,16 +57,6 @@ public class Gragh extends JFrame{
 		setVisible(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		int score0_9 = 0;
-		int score10_19= 0;
-		int score20_29= 0;
-		int score30_39= 0;
-		int score40_49= 0;
-		int score50_59= 0;
-		int score60_69= 0;
-		int score70_79= 0;
-		int score80_89= 0;
-		int score90_100= 0;
 		
 		for (Score score : Subject.score_list) {
 			int temp=score.getMid(s.getName());
@@ -77,11 +90,7 @@ public class Gragh extends JFrame{
 			else if(temp >= 90 && temp <100) {
 				score90_100++;
 			}
-			
-
-
 		}
 		
-	}
-	
+	}	
 }
