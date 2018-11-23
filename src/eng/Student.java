@@ -6,6 +6,7 @@ public class Student{
 	private int std_num; // 학번
 	private int team; // 팀
 	private String unique; // 특이사항
+	Score score;
 	public Attend attend;
 	
 	
@@ -51,5 +52,13 @@ public class Student{
 	// 특이사항 setter
 	public void setUnique(String unique) {
 		this.unique = unique;
+	}
+
+	public Score getScore() {
+		return score;
+	}
+
+	public void setScore(Score score) {
+		this.score = score;
 	}
 }

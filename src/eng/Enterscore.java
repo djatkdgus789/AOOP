@@ -62,7 +62,7 @@ public class Enterscore {
 					int report = Integer.parseInt(tf_report_enter.getText());
 					int attend = Integer.parseInt(tf_attend_enter.getText());
 					
-					s.addScore(stunum, mid, last, assign, quiz, pres, report, attend);
+					s.addScore(stunum, mid, last, assign, quiz, pres, report);
 				}
 			}
 			catch(Exception e){

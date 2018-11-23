@@ -16,11 +16,15 @@ public class Test {
 		s = new Student("밥상", 60171523, 1,"ㅇㄹ");
 		f.s.addStudent(s);
 		System.out.println(f.s.std_list.size());
-		f.s.addScore(60152208, 30, 10, 10, 10, 10, 10, 10);
-		f.s.addScore(60152215, 20, 20, 20, 20, 20, 20, 20);
-		f.s.addScore(60171523, 30, 30, 30, 30, 30, 30, 30);
-//		web.addAttendence("web", 60152208,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0);
-//		web.addAttendence("web", 60152215,1,1,1,0,0,0,-3,-3,-3,-3,0,0,0,0,0,0);
+		
+		f.s.addAttendence("web", 60152208,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0);
+		f.s.addAttendence("web", 60152215,1,1,1,0,0,0,-3,-3,-3,-3,0,0,0,0,0,0);
+		
+		f.s.addScore(60152208, 30, 10, 10, 10, 10, 10);
+		f.s.addScore(60152215, 20, 20, 20, 20, 20, 20);
+		f.s.addScore(60171523, 30, 30, 30, 30, 30, 30);
+		System.out.println(f.s.getAverofTotal() + f.s.getRank(60152208) + f.s.getRank(60152215) + f.s.getRank(60171523));
+		
 //
 //		web.sortStd_num_Ascending();
 //		web.view("web");

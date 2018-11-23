@@ -3,8 +3,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Score {
-	private int std_num;
-	private Map<String, Integer> attend; // 출석 점수	
+	private Map<String, Attend> attend; // 출석 점수	
 	private Map<String, Integer> mid; // 중간고사 점수
 	private Map<String, Integer> last; // 기말고사 점수
 	private Map<String, Integer> assignment; // 과제
@@ -14,10 +13,9 @@ public class Score {
 	private Map<String, String> grade; // 등급 
 	private Map<String, Double> total_score;
 	private Map<String, Integer> rank;
-	
-	Score(String subj, int std_num){
-		this.setStd_num(std_num);
-		attend = new HashMap <String, Integer>();
+
+	Score(String sbj_name){
+		attend = new HashMap <String, Attend>();
 		mid = new HashMap <String, Integer>(); // 중간고사 점수
 		last = new HashMap <String, Integer>(); // 기말고사 점수
 		assignment= new HashMap <String, Integer>(); // 과제
@@ -27,13 +25,28 @@ public class Score {
 		grade = new HashMap <String	,String>(); // 등급 
 		total_score = new HashMap <String, Double>();	// 총점 
 		rank = new HashMap <String, Integer>();
-		
+		initScore(sbj_name);
 	}
-/*	public void setTotal(String sbj_name) {
+	
+	public void initScore(String sbj_name ) {
+		this.attend.get(sbj_name).initAttend();
+		this.mid.put(sbj_name, 0);
+		this.last.put(sbj_name, 0);
+		this.assignment.put(sbj_name, 0);
+		this.report.put(sbj_name, 0);
+		this.quiz.put(sbj_name, 0);
+		this.presentation.put(sbj_name, 0);
+		this.grade.put(sbj_name, "");
+		this.total_score.put(sbj_name, (double) 0);
+		this.rank.put(sbj_name, 0);
+	}
+	
+
+	/*	public void setTotal(String sbj_name) {
 		total_score.put(sbj_name, (double) ((mid.get(sbj_name)) + (last.get(sbj_name))+ (assignment.get(sbj_name)) +(report.get(sbj_name))
 				+ quiz.get(sbj_name)+presentation.get(sbj_name) + (attend.get(sbj_name))));
 	}
-*/	// 중간 setter
+	 */	// 중간 setter
 	public void setMid(String sbj_name, int score) {
 		this.mid.put(sbj_name, score);
 	}
@@ -83,40 +96,31 @@ public class Score {
 	}
 	// 줄석점수  setter
 	public void setAttend(String sbj_name, int score) {
-		this.attend.put(sbj_name, score);
-		}
-		// 출석점수  getter
-	public int getAttend(String sbj_name) {
-		return this.attend.get(sbj_name);
+	
 	}
-	
-	
+	// 출석점수  getter
+	public int getAttend(String sbj_name) {
+		return this.attend.get(sbj_name).getAttend();
+	}
+
+
 	public String getGrade(String sbj_name) {
 		return grade.get(sbj_name);
 	}
-	// 학번 getter
-	public int getStd_num() {
-		return std_num;
-	}
-	// 학번 setter
-	public void setStd_num(int std_num) {
-		this.std_num = std_num;
-	}
+
 	public Double getTotal_score(String sbj_name) {
 		return total_score.get(sbj_name);
 	}
-	public void addTotal_score(String sbj_name, int score) {
-		double current_score = total_score.get(sbj_name);
-		total_score.put(sbj_name, current_score + score);
+	public void setTotal_score(String sbj_name, double value) {
+		total_score.put(sbj_name, value);
 	}
-	
 	public int getRank(String key) {
 		return rank.get(key);
 	}
 	public void setRank(String sbj_name, int rank) {
 		this.rank.put(sbj_name, rank);
 	}
-	
-	
-	
+
+
+
 }
