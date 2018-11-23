@@ -343,8 +343,7 @@ public class Frame extends JFrame implements ActionListener{
 			break;
 			
 		case "Graph for mid":
-			
-			new Gragh(s);
+			new Gragh();
 	        break;
 	        
 	        
