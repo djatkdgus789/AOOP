@@ -120,7 +120,4 @@ public class Score {
 	public void setRank(String sbj_name, int rank) {
 		this.rank.put(sbj_name, rank);
 	}
-
-
-
 }
