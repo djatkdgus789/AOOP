@@ -1,6 +1,6 @@
 package eng;
 
-//출석을 관
+//출석을 관리.
 public class Attend {
 	private static final int ABSENCE = -3;
 	private static final int lATE = -1;

@@ -15,6 +15,7 @@ import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 import javax.swing.border.Border;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
@@ -28,6 +29,8 @@ public class Frame extends JFrame implements ActionListener{
 	public JTextField tf_selectedMenu = new JTextField(10);
 	public Map<String, Subject> java = new HashMap<String,Subject>();
 	public Subject s;
+	public JList studentList;
+	private DefaultListModel model;
 
 	
 	public Frame() {
@@ -36,7 +39,7 @@ public class Frame extends JFrame implements ActionListener{
 	java.put("aoop", new Subject("aoop"));
 	setTitle("aoop proj ");
 	setSize(550,800);
-	setLayout(new GridLayout(2,1));
+	setLayout(new BorderLayout());
 	constructLayout();
 	makeMenu();
 	setVisible(true);
@@ -192,24 +195,23 @@ public class Frame extends JFrame implements ActionListener{
 	setJMenuBar(mb);
 	}
 	void constructLayout() {
-		JPanel p1 = new JPanel(new GridLayout(3,1,0,0));
+		JPanel p1 = new JPanel(new FlowLayout());
 		JPanel p1_1 = new JPanel(new FlowLayout());
 		JPanel p1_2 = new JPanel(new FlowLayout());
-		JPanel p1_3 = new JPanel(new FlowLayout());
+//		JPanel p1_3 = new JPanel(new FlowLayout());
 		JLabel jl_current_subj = new JLabel("현재 작업 중인 과목 ");
 		JLabel selectedMenu = new JLabel("선택한 메뉴의 결과값");
 
 
-
-		add(p1);
+		add(p1,BorderLayout.NORTH);
 		p1.add(p1_1);
 		p1_1.add(jl_current_subj);
 		p1_1.add(tf_current_subj);
 		tf_current_subj.setEnabled(false);
 		
-		p1.add(p1_2);
-		p1_2.add(selectedMenu);
-		p1_2.add(tf_selectedMenu);
+//		p1.add(p1_2);
+		p1_1.add(selectedMenu);
+		p1_1.add(tf_selectedMenu);
 		tf_selectedMenu.setEnabled(false);
 
 //		JPanel p2 = new JPanel();
@@ -217,20 +219,20 @@ public class Frame extends JFrame implements ActionListener{
 //		p2.add(new JLabel("2"));
 //
 //		
-		JPanel p3 = new JPanel();
-		add(p3);
+		//JPanel p3 = new JPanel();
+		//add(p3);
 		
 		Border lineBorder = BorderFactory.createLineBorder(Color.BLACK, 1);
 		DefaultListModel model = new DefaultListModel();
-		JList studentList = new JList(model);
+		studentList = new JList(model);
 		JScrollPane jp1 = new JScrollPane(studentList);
-		studentList.setVisibleRowCount(15);
+		studentList.setVisibleRowCount(30);
 			//studentList.setFont(f2);
 			studentList.setBorder(lineBorder);
 		model.addElement("학생의 성적!!!");
 		model.addElement( "--------------------------------------------------------------");
-		
-		p3.add(jp1);
+		add(jp1,BorderLayout.CENTER);
+
 //		JPanel p4 = new JPanel();
 //		add(p4); 
 //		p4.add(new JLabel("그래프 "));
@@ -287,6 +289,7 @@ public class Frame extends JFrame implements ActionListener{
 		
 		case "Enter stu":
 			new Enterstu(s);
+			model.addElement("학생의 성적!!!");
 			break;
 			
 		case "Modify stu":
@@ -339,7 +342,7 @@ public class Frame extends JFrame implements ActionListener{
 			break;
 			
 		case "Average of Report":
-			tf_selectedMenu.setText("기말고사 평균 : "+Double.toString(s.calAverofReport()));	
+			tf_selectedMenu.setText("보고서점수 평균 : "+Double.toString(s.calAverofReport()));	
 			break;
 			
 		case "Graph for mid":
