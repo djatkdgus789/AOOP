@@ -56,9 +56,6 @@ public class Attend {
 				score += ABSENCE;
 			}
 		}
-		if (score <= 48+ABSENCE*4) {
-			score = 0;
-		}
 	}
 
 	
