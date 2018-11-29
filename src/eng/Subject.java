@@ -150,7 +150,7 @@ public class Subject {
 	public void calGrade() {
 		
 	}
-
+	// 총점 계
 	public void calTotal(int std_num) {
 		for(Student student : std_list) {
 			if(student.getStd_num() == std_num) {
@@ -172,7 +172,7 @@ public class Subject {
 				total += student.getScore().getReport() * weight[5];
 				total += student.getScore().getAttend() * weight[6];
 				
-				//student.getScore().setTotal_score( total/100);
+				student.setTotal(total/100);
 			}
 		}
 	}
