@@ -45,7 +45,6 @@ public class Subject {
 	// 학생 추가 F012
 	public void addStudent(Student s) {
 		this.std_list.add(s);
-		s.score.initScore(this.name);
 	}
 
 	// 학생 삭제 
@@ -62,6 +61,9 @@ public class Subject {
 	public void addScore(int std_num, int mid, int last, int assign ,int quiz, int pres, int report) {
 		std_list.forEach((x)->{
 			if((x.getStd_num())==(std_num)) {
+				if((x.score == null)) {
+					x.score = new Score(name);
+				}
 				x.score.setMid(this.name, (mid));
 				x.score.setLast(this.name, (last));
 				x.score.setAssign(this.name, (assign));
