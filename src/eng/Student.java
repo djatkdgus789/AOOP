@@ -1,4 +1,5 @@
 package eng;
+
 import java.util.Map;
 
 public class Student {
@@ -6,15 +7,12 @@ public class Student {
 	private int std_num; // 학번
 	private int team; // 팀
 	private String unique; // 특이사항
-	private Score score;	// 점수 관리 객체  
-	private Attend attend; // 출석 관리 객체 
-	private double total; // 과목 반영 비율이 반영된 총점  
+	private Score score; // 점수 관리 객체
+	private Attend attend; // 출석 관리 객체
+	private double total; // 과목 반영 비율이 반영된 총점
 	private String grade; // 등급
 	private int rank; // 등수
-	
-	
 
-	
 	// 학생 생성자
 	public Student(String name, int num, int team, String unique) {
 		this.name = name;
@@ -24,7 +22,7 @@ public class Student {
 		attend = new Attend();
 		score = new Score();
 	}
-	
+
 	public Attend getAttend() {
 		return attend;
 	}
@@ -33,12 +31,14 @@ public class Student {
 		this.attend = attend;
 	}
 
-	public void addScore(){ // 점수 객체에 점수를 추가한다.
-		
+	public void addScore() { // 점수 객체에 점수를 추가한다.
+
 	}
+
 	public void calcTotal() { // 과목이 가지고 있는 반영비율을 받아와 총점을 계산함.
-		
+
 	}
+
 	public int getRank() { // 현재학생의 등수를 계산해준다.
 		return rank;
 	}
@@ -58,16 +58,20 @@ public class Student {
 	public double getTotal() {
 		return total;
 	}
+
 	public void setTotal(double total) {
 		this.total = total;
 	}
+
 	public String getUnique() {
 		return unique;
 	}
+
 	// 이름 getter
 	public String getName() {
 		return name;
 	}
+
 	// 이름 setter
 	public void setName(String name) {
 		this.name = name;
@@ -77,12 +81,12 @@ public class Student {
 	public int getStd_num() {
 		return std_num;
 	}
-	
+
 	// 학번 setter
 	public void setStd_num(int std_num) {
 		this.std_num = std_num;
 	}
-	
+
 	// 팀 getter
 	public int getTeam() {
 		return team;
@@ -92,6 +96,7 @@ public class Student {
 	public void setTeam(int team) {
 		this.team = team;
 	}
+
 	// 특이사항 setter
 	public void setUnique(String unique) {
 		this.unique = unique;
@@ -104,6 +109,20 @@ public class Student {
 	public void setScore(Score score) {
 		this.score = score;
 	}
+
+	public String toString() {
+		String str = null;
+		String n = this.getName();
+		double mid = score.getMid();
+		double last = score.getLast();
+		double assign = score.getAssignment();
+		double report = score.getReport();
+		double quiz = score.getQuiz();
+		double pres = score.getPresentation();
+
+		str = (String.format("%-25.23s%8.2f%8.2f%8.2f%8.2f%15.2f%15.2f" + "\n", n, mid, last, assign, report, quiz,
+				pres));
+
+		return str;
+	}
 }
-
-
