@@ -67,7 +67,6 @@ public class Subject {
 				x.getScore().setQuiz(quiz);
 				x.getScore().setPresentation(pres);
 				x.getScore().setReport(report);
-				return;
 			}
 			
 		});
