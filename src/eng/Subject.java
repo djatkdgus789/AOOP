@@ -45,6 +45,7 @@ public class Subject {
 	// 학생 추가 F012
 	public void addStudent(Student s) {
 		this.std_list.add(s);
+		s.setRank(std_list.indexOf(s));
 	}
 
 	// 학생 삭제 
