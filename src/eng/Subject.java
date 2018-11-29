@@ -44,6 +44,7 @@ public class Subject {
 	public void addStudent(Student s) {
 		this.std_list.add(s);
 		s.setRank(std_list.indexOf(s) + 1);
+		s.calcTotal();
 	}
 
 	// 학생 삭제
@@ -260,7 +261,9 @@ public class Subject {
 			System.out.print(x.getScore().getQuiz());
 			System.out.print(x.getScore().getPresentation());
 			System.out.print(x.getScore().getReport());
-			System.out.println(x.getScore().getAttend());
+			System.out.print(x.getScore().getAttend());
+			System.out.println(x.getTotal());
+
 		});
 	}
 

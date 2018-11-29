@@ -15,6 +15,8 @@ import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 import javax.swing.border.Border;
 
+import javafx.event.ActionEvent;
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.FlowLayout;
@@ -27,7 +29,6 @@ import java.util.Map;
 public class Frame extends JFrame implements ActionListener {
 	public JTextField tf_current_subj = new JTextField(5);
 	public JTextField tf_selectedMenu = new JTextField(10);
-	public JButton jb_refresh = new JButton("갱신");
 	public Map<String, Subject> java = new HashMap<String, Subject>();
 	public Subject s;
 	public JList<String> studentList;
@@ -44,6 +45,7 @@ public class Frame extends JFrame implements ActionListener {
 		makeMenu();
 		setVisible(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
 	}
 
 	void makeMenu() {
@@ -204,8 +206,9 @@ public class Frame extends JFrame implements ActionListener {
 		p1_1.add(selectedMenu);
 		p1_1.add(tf_selectedMenu);
 		tf_selectedMenu.setEnabled(false);
-		
-		p1_1.add(jb_refresh);
+
+
+
 		//		JPanel p2 = new JPanel();
 		//		add(p2);
 		//		p2.add(new JLabel("2"));
@@ -235,6 +238,7 @@ public class Frame extends JFrame implements ActionListener {
 		for (Student s : s.std_list) {
 			model.addElement(s.toString());
 		}
+
 	}
 
 	@Override
@@ -242,7 +246,6 @@ public class Frame extends JFrame implements ActionListener {
 		// TODO Auto-generated method stub
 		JMenuItem mi = (JMenuItem) (e.getSource());
 
-		// f006
 		switch (mi.getText()) {
 
 		case "Exit":
@@ -252,18 +255,22 @@ public class Frame extends JFrame implements ActionListener {
 		case "WEBPROG":
 			tf_current_subj.setText("WEBPROG");
 			s = java.get("web");
+			this.view();
 
 			break;
 			// f0007
 		case "AOOP":
 			tf_current_subj.setText("AOOP");
 			s = java.get("aoop");
+			this.view();
+
 
 			break;
 			// f0008
 		case "OOP":
 			tf_current_subj.setText("OOP");
 			s = java.get("oop");
+			this.view();
 
 			break;
 
@@ -341,14 +348,12 @@ public class Frame extends JFrame implements ActionListener {
 			break;
 
 		case "Graph for mid":
-			new Gragh();
+			new Gragh(s);
 			break;
 
 		case "Graph for last":
-
 			break;
+		
 		}
-
 	}
-
 }
