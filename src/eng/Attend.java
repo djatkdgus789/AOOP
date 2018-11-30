@@ -13,10 +13,6 @@ public class Attend {
 		attend = 0;
 	}
 
-	public void initAttend() {
-		this.attend = 0;
-	}
-
 	// 출석입력,수정 F001, F002
 	public void check(int i1, int i2, int i3, int i4, int i5, int i6, int i7, int i8, int i9, int i10, int i11, int i12,
 			int i13, int i14, int i15, int i16) {
