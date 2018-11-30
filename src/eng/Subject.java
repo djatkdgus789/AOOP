@@ -44,6 +44,8 @@ public class Subject {
 	public void addStudent(Student s) {
 		this.std_list.add(s);
 		s.setRank(std_list.indexOf(s) + 1);
+		calRank();
+		System.out.println(s.getRank());
 	}
 
 	// 학생 삭제
@@ -142,7 +144,7 @@ public class Subject {
 		int i, j, temp;
 		for (i = 0; i < std_list.size(); i++) {
 			for (j = 0; j < std_list.size() - (i + 1); j++) {
-				if (std_list.get(j).getTotal() > std_list.get(j + 1).getTotal()) {
+				if (std_list.get(j).getTotal() < std_list.get(j + 1).getTotal()) {
 
 					temp = std_list.get(j + 1).getRank();
 					std_list.get(j + 1).setRank(std_list.get(j).getRank());
@@ -168,8 +170,12 @@ public class Subject {
 	public void calGrade(int std_num) {
 		for (Student student : std_list) {
 			if (student.getStd_num() == std_num) {
-				int percent;
-				percent = student.getRank()/std_list.size()*100;
+				float percent;
+				
+				percent = (float)student.getRank()/(float)std_list.size()*100;
+				
+				System.out.println(percent);
+				System.out.println(student.getRank());
 				if(percent <= ratio[0]) {
 					student.setGrade("A+");
 				}
