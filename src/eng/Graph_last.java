@@ -4,18 +4,13 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.Dimension;
-import java.awt.Font;
 import java.awt.Graphics;
-import java.awt.GridLayout;
-import java.awt.Toolkit;
-import java.util.ArrayList;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-public class Gragh extends JFrame {
+public class Graph_last extends JFrame {
 	public Subject s;
-	Gragh(Subject s) {
+	Graph_last(Subject s) {
 		this.s = s;
 		JFrame frame = new JFrame("성적 그래프 프로그램");
 		frame.setLocation(500, 200);
@@ -53,7 +48,7 @@ class DrawingPanel extends JPanel {
 		int score90_100 = 0;
 
 		for ( Student std : s.std_list) {
-			int temp=std.getScore().getMid();
+			int temp=std.getScore().getLast();
 			if(temp >= 0 && temp <10) {
 				score0_9++;
 			}
@@ -122,3 +117,4 @@ class DrawingPanel extends JPanel {
 			g.fillRect(290, 250 - score90_100 * 20, 10, score90_100 * 20);
 	}
 }
+
