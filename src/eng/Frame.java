@@ -162,9 +162,6 @@ public class Frame extends JFrame implements ActionListener {
 		item = new JMenuItem("Graph for last");
 		item.addActionListener(this);
 		graph.add(item);
-		item = new JMenuItem("Graph for report");
-		item.addActionListener(this);
-		graph.add(item);
 		item = new JMenuItem("Graph for quiz");
 		item.addActionListener(this);
 		graph.add(item);
@@ -174,7 +171,7 @@ public class Frame extends JFrame implements ActionListener {
 		item = new JMenuItem("Graph for report");
 		item.addActionListener(this);
 		graph.add(item);
-		item = new JMenuItem("Graph for assent");
+		item = new JMenuItem("Graph for attend");
 		item.addActionListener(this);
 		graph.add(item);
 
@@ -367,11 +364,15 @@ public class Frame extends JFrame implements ActionListener {
 			break;
 
 		case "Graph for mid":
-			new Gragh(s);
+			new Graph_mid(s);
 			break;
 
 		case "Graph for last":
+			new Graph_last(s);
 			break;
+		
+		case "Graph for report":
+			
 		
 		}
 	}
