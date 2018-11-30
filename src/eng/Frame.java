@@ -323,7 +323,7 @@ public class Frame extends JFrame implements ActionListener {
 		case "Calc grade":
 			new Calcgrade(s);
 			break;
-		case "Check %":
+		case "Rank":
 			new Rank(s);
 			break;
 		case "Average of Total":
