@@ -139,7 +139,7 @@ public class Subject {
 
 	// 등수 계산
 	public void calRank() {
-		Student temp = std_list.get(0);
+		Student temp;
 		// 모든 학생의 등수를 0으로 초기화 
 		std_list.forEach(s -> {
 			s.setRank(0);
@@ -147,6 +147,7 @@ public class Subject {
 		
 		
 		for (int i = 0; i < std_list.size(); i++) {
+			temp = std_list.get(0);
 			for (int j = 0; j < std_list.size()-1; j++) {
 				if(std_list.get(j).getRank() != 0) { // 등수가 있으면 넘어
 					continue;
