@@ -44,7 +44,6 @@ public class Subject {
 	public void addStudent(Student s) {
 		this.std_list.add(s);
 		s.setRank(std_list.indexOf(s) + 1);
-		s.calcTotal();
 	}
 
 	// 학생 삭제
@@ -96,11 +95,25 @@ public class Subject {
 	// 평균 getter
 
 	// 중간고사 오름차순 정렬
-	public void sort_mid_Score_Ascending() {
+	public void sort_total_Score_Ascending() {
 		this.std_list.sort(new Comparator<Student>() {
 			@Override
 			public int compare(Student o1, Student o2) {
-				if (o1.getScore().getMid() - o2.getScore().getMid() > 0) {
+				if (o1.getTotal() - o2.getTotal() > 0) {
+					return 0;
+				} else {
+					return -1;
+				}
+			}
+		});
+
+	}
+	// 중간고사 오름차순 정렬
+	public void sort_total_Score_Descending() {
+		this.std_list.sort(new Comparator<Student>() {
+			@Override
+			public int compare(Student o1, Student o2) {
+				if (o2.getTotal() - o1.getTotal() > 0) {
 					return 0;
 				} else {
 					return -1;
@@ -151,12 +164,47 @@ public class Subject {
 		return temp;
 	}
 
-	// 등급 계산
-	public void calGrade() {
-
+	// 등급 계산 15, 15, 15, 15, 10, 10, 10, 10
+	public void calGrade(int std_num) {
+		for (Student student : std_list) {
+			if (student.getStd_num() == std_num) {
+				int percent;
+				percent = student.getRank()/std_list.size()*100;
+				if(percent <= ratio[0]) {
+					student.setGrade("A+");
+				}
+				else if(percent > ratio[0] && percent >= ratio[0]+ratio[1]) {
+					student.setGrade("A0");
+				}
+				else if(percent > ratio[0]+ratio[1] && percent <= ratio[0]+ratio[1]+ratio[2]) {
+					student.setGrade("B+");
+				}
+				else if(percent > ratio[0]+ratio[1]+ratio[2] 
+						&& percent <= ratio[0]+ratio[1]+ratio[2]+ratio[3]) {
+					student.setGrade("B0");
+				}
+				else if(percent > ratio[0]+ratio[1]+ratio[2]+ratio[3] 
+						&& percent <= ratio[0]+ratio[1]+ratio[2]+ratio[3]+ratio[4]) {
+					student.setGrade("C+");
+				}
+				else if(percent > ratio[0]+ratio[1]+ratio[2]+ratio[3]+ratio[4] 
+						&& percent <= ratio[0]+ratio[1]+ratio[2]+ratio[3]+ratio[4]+ratio[5]) {
+					student.setGrade("C0");
+				}
+				else if(percent > ratio[0]+ratio[1]+ratio[2]+ratio[3]+ratio[4]+ratio[5] 
+						&& percent <= ratio[0]+ratio[1]+ratio[2]+ratio[3]+ratio[4]+ratio[5]+ratio[6]) {
+					student.setGrade("D");
+				}
+				else if(percent > ratio[0]+ratio[1]+ratio[2]+ratio[3]+ratio[4]+ratio[5]+ratio[6]
+						&&percent <= ratio[0]+ratio[1]+ratio[2]+ratio[3]+ratio[4]+ratio[5]+ratio[6]+ratio[7]) {
+					student.setGrade("F");
+				}
+			}
+		}
 	}
 
-	// 총점 계
+
+	// 총점 계산 
 	public void calTotal(int std_num) {
 		for (Student student : std_list) {
 			if (student.getStd_num() == std_num) {
@@ -236,7 +284,13 @@ public class Subject {
 	}
 
 	// 총점에 대한 표준편차 계산
-	public void calDevi() {
+	public double calDevi() {
+		double devi = 0;
+		for (Student s:this.std_list) {
+			devi += Math.pow(s.getTotal()-this.getAverofTotal(),2);
+		}
+		devi = Math.sqrt(devi/this.std_list.size());
+		return devi; 
 
 	}
 

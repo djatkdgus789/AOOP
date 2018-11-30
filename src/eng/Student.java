@@ -31,15 +31,9 @@ public class Student {
 		this.attend = attend;
 	}
 
-	public void addScore() { // 점수 객체에 점수를 추가한다.
 
-	}
 
-	public void calcTotal() { // 과목이 가지고 있는 반영비율을 받아와 총점을 계산함.
-
-	}
-
-	public int getRank() { // 현재학생의 등수를 계산해준다.
+	public int getRank() {
 		return rank;
 	}
 
@@ -113,15 +107,18 @@ public class Student {
 	public String toString() {
 		String str = null;
 		String n = this.getName();
+		int num = this.getStd_num();
 		double mid = score.getMid();
 		double last = score.getLast();
 		double assign = score.getAssignment();
 		double report = score.getReport();
 		double quiz = score.getQuiz();
 		double pres = score.getPresentation();
+		int attend = getAttend().getAttend();
+		double total = this.total;
 
-		str = (String.format("%-25.23s%8.2f%8.2f%8.2f%8.2f%15.2f%15.2f" + "\n", n, mid, last, assign, report, quiz,
-				pres));
+		str = (String.format("%s %10d %8.2f %8.2f %8.2f %8.2f %8.2f %8.2f %10d %10f" 
+				, n,num,mid,last,assign,report,quiz,pres,attend,total));
 
 		return str;
 	}

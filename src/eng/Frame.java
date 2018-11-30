@@ -225,6 +225,7 @@ public class Frame extends JFrame implements ActionListener {
 		// studentList.setFont(f2);
 		studentList.setBorder(lineBorder);
 		model.addElement("학생의 성적!!!");
+		model.addElement("해당 과목 메뉴를 누르면 갱신됩니다.");
 		model.addElement("--------------------------------------------------------------");
 		add(jp1, BorderLayout.CENTER);
 
@@ -235,6 +236,8 @@ public class Frame extends JFrame implements ActionListener {
 	}
 	public void view() {
 		model.removeAllElements();
+		model.addElement("학생이름 학번 중간 기말 과제 보고서 퀴즈 발표순입니다.");
+		model.addElement("해당 과목 메뉴를 누르면 갱신됩니다.");
 		for (Student s : s.std_list) {
 			model.addElement(s.toString());
 		}
@@ -320,7 +323,7 @@ public class Frame extends JFrame implements ActionListener {
 		case "Calc grade":
 			new Calcgrade(s);
 			break;
-		case "Rank":
+		case "Check %":
 			new Rank(s);
 			break;
 		case "Average of Total":
@@ -345,6 +348,22 @@ public class Frame extends JFrame implements ActionListener {
 
 		case "Average of Report":
 			tf_selectedMenu.setText("보고서점수 평균 : " + Double.toString(s.calAverofReport()));
+			break;
+		case "Deviation":
+			double devi = Double.parseDouble(String.format("%.2f",s.calDevi()));
+			tf_selectedMenu.setText("표준편차 : " + Double.toString(devi));
+			break;
+			
+		case "Sort ascending by Total Score":
+			s.sort_total_Score_Ascending();
+			break;
+			
+		case "Sort descending by Total Score":
+			s.sort_total_Score_Descending();
+			break;
+			
+		case "Sort by stunum":
+			s.sort_Std_num_Ascending();
 			break;
 
 		case "Graph for mid":

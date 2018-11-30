@@ -39,7 +39,7 @@ public class Rank {
 			try {
 				if (l.getSource() == rank) {
 					int stunum = Integer.parseInt(tf_stunum_enter.getText());
-					// tf_grade.setText(Integer.toString(s.Rank(stunum)));
+					 tf_grade.setText(Integer.toString(s.getRank(stunum)));
 				}
 			} catch (Exception e) {
 

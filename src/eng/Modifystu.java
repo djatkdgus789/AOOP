@@ -32,6 +32,7 @@ public class Modifystu {
 		tf_name_mod.setText("학번으로 검색 ");
 		tf_name_mod.setEditable(false);
 		tf_team_mod.setEditable(false);
+		tf_unique_mod.setEditable(false);
 
 		JPanel p1_mod = new JPanel(new FlowLayout());
 		f_mod.add(p1_mod);
@@ -64,6 +65,7 @@ public class Modifystu {
 							tf_stunum_mod.setEditable(false);
 							tf_name_mod.setEditable(true);
 							tf_team_mod.setEditable(true);
+							tf_unique_mod.setEditable(true);
 
 						}
 					});

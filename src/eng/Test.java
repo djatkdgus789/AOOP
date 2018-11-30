@@ -35,7 +35,7 @@ public class Test {
 		// f.s.sort_Std_num_Ascending();
 		f.s.view("web");
 
-		f.s.sort_mid_Score_Ascending();
+
 		f.s.view("web");
 		f.s.viewAttend();
 	}

@@ -26,7 +26,7 @@ public class Gragh extends JFrame {
 		contentPane.add(drawingPanel, BorderLayout.CENTER);
 		// 그래프를 그릴 패널
 
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		//frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		// "그래프 그리기" 버튼을 눌렀을때 작동 할 리스터등록
 		frame.pack();
 		frame.setVisible(true);
@@ -51,7 +51,6 @@ class DrawingPanel extends JPanel {
 		int score70_79 = 0;
 		int score80_89 = 0;
 		int score90_100 = 0;
-		int score_num = 0;
 
 		for ( Student std : s.std_list) {
 			int temp=std.getScore().getMid();
