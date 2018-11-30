@@ -141,22 +141,25 @@ public class Subject {
 
 	// 등수 계산
 	public void calRank() {
-		int i, j, temp;
-		for (i = 0; i < std_list.size(); i++) {
-			for (j = 0; j < std_list.size() - (i + 1); j++) {
-				if (std_list.get(j).getTotal() < std_list.get(j + 1).getTotal()) {
-
-					temp = std_list.get(j + 1).getRank();
-					std_list.get(j + 1).setRank(std_list.get(j).getRank());
-					std_list.get(j).setRank(temp);
-				}
+		Student temp = std_list.get(0);
+		// 모든 학생의 등수를 0으로 초기화 
+		std_list.forEach(s -> {
+			s.setRank(0);
+		});
+		
+		
+		for (int i = 0; i < std_list.size(); i++) {
+			for (int j = 0; j < std_list.size()-1; j++) {
+				if(std_list.get(j).getRank() != 0) { // 등수가 있으면 넘어
+					continue;
+				}else if(std_list.get(j).getTotal() < std_list.get(j+1).getTotal() ) { 
+					temp = std_list.get(j+1);				}
 			}
+			temp.setRank(i+1);
 		}
 	}
 
 	public int getRank(int std_num) {
-		this.calTotal(std_num);
-		this.calRank();
 		int temp = 0;
 		for (Student student : std_list) {
 			if (student.getStd_num() == std_num) {
