@@ -20,13 +20,13 @@ public class Chgweight {
 		f_chgweight.setVisible(true);
 		f_chgweight.setLayout(new GridLayout(3, 1, 0, 0));
 		JLabel jl_weight = new JLabel("중간       기말       과제       퀴즈       발표       보고서       출결 순입니다.");
-		JTextField tf_mid = new JTextField("", 5); //
-		JTextField tf_last = new JTextField("", 5);
-		JTextField tf_assign = new JTextField("", 5);
-		JTextField tf_quiz = new JTextField("", 5);
-		JTextField tf_pres = new JTextField("", 5);
-		JTextField tf_report = new JTextField("", 5);
-		JTextField tf_attend = new JTextField("", 5);
+		JTextField tf_mid = new JTextField("25", 5); //
+		JTextField tf_last = new JTextField("25", 5);
+		JTextField tf_assign = new JTextField("10", 5);
+		JTextField tf_quiz = new JTextField("10", 5);
+		JTextField tf_pres = new JTextField("10", 5);
+		JTextField tf_report = new JTextField("10", 5);
+		JTextField tf_attend = new JTextField("10", 5);
 		JButton save_chgweight = new JButton("Save");
 
 		JPanel p1_chgweight = new JPanel(new FlowLayout());
