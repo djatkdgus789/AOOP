@@ -7,6 +7,7 @@ public class Attend {
 	private static final int ATTENDANCE = 0;
 
 	private int attend;
+	private int i1,i2,i3,i4,i5,i6,i7,i8,i9,i10,i11,i12,i13,i14,i15,i16;
 
 	// 출석 생성자 기본 16주
 	Attend() {
@@ -39,6 +40,52 @@ public class Attend {
 	public int getAttend() {
 		return attend;
 	}
-	// 출석 계산
-
+	public int getI1() {
+		return i1;
+	}
+	public int getI2() {
+		return i2;
+	}
+	public int getI3() {
+		return i3;
+	}
+	public int getI4() {
+		return i4;
+	}
+	public int getI5() {
+		return i5;
+	}
+	public int getI6() {
+		return i6;
+	}
+	public int getI7() {
+		return i7;
+	}
+	public int getI8() {
+		return i8;
+	}
+	public int getI9() {
+		return i9;
+	}
+	public int getI10() {
+		return i10;
+	}
+	public int getI11() {
+		return i11;
+	}
+	public int getI12() {
+		return i12;
+	}
+	public int getI13() {
+		return i13;
+	}
+	public int getI14() {
+		return i14;
+	}
+	public int getI15() {
+		return i15;
+	}
+	public int getI16() {
+		return i16;
+	}
 }
