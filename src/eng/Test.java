@@ -19,8 +19,8 @@ public class Test {
 		s = new Student("상현", 7, 1, "ㅇㄹ");
 		f.s.addStudent(s);
 		System.out.println(f.s.std_list.size());
-		//f.s.addAttendence("web", 60152208, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-		//f.s.addAttendence("web", 60152215, 1, 1, 1, 0, 0, 0, -3, -3, -3, -3, 0, 0, 0, 0, 0, 0);
+		f.s.addAttendence(1, -1, -1, -1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+		f.s.addAttendence(2, -1, -1, -1, 0, 0, 0, -3, -3, -3, -3, 0, 0, 0, 0, 0, 0);
 
 		f.s.addScore(1, 30, 30, 30, 30, 30, 30);
 		f.s.addScore(2, 10, 10, 10, 10, 10, 10);
