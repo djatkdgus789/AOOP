@@ -43,9 +43,6 @@ public class Subject {
 	// 학생 추가 F012
 	public void addStudent(Student s) {
 		this.std_list.add(s);
-		s.setRank(std_list.indexOf(s) + 1);
-		calRank();
-		System.out.println(s.getRank());
 	}
 
 	// 학생 삭제
@@ -146,21 +143,33 @@ public class Subject {
 		std_list.forEach(s -> {
 			s.setRank(0);
 		});
-		
+		temp = std_list.get(0);
 		
 		for (int i = 0; i < std_list.size(); i++) {
-			temp = std_list.get(0);
-			for (int j = 0; j < std_list.size()-1; j++) {
-				if(std_list.get(j).getRank() != 0) { // 등수가 있으면 넘어
-					continue;
-				}else if(std_list.get(j).getTotal() < std_list.get(j+1).getTotal() ) { 
-					temp = std_list.get(j+1);				}
+			// temp의초기값 설정, Rank가 0이 아닌 배열이 와야
+			for (int j = 0; j < std_list.size(); j++) {
+				if(std_list.get(j).getRank() == 0) {
+					temp = std_list.get(j);
+					break;
+				}
 			}
+			
+			// 랭크가 0인 학생들 중에서 총점이 제일 큰 학생을 찾
+			for (int j = 0; j < std_list.size(); j++) {	
+				if(temp.getTotal() < std_list.get(j).getTotal() && std_list.get(j).getRank() == 0 ) {
+					temp = std_list.get(j);
+				}
+			}
+			//찾은 학생의 등수를 설
 			temp.setRank(i+1);
+			System.out.println(temp.getName());
+			System.out.println(temp.getTotal());
+			System.out.println(temp.getRank());
 		}
 	}
 
 	public int getRank(int std_num) {
+		calRank();
 		int temp = 0;
 		for (Student student : std_list) {
 			if (student.getStd_num() == std_num) {
