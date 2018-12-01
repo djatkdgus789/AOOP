@@ -7,15 +7,14 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class StudentPersonQuery {
 	Frame f = new Frame();
-	f.s = f.java.get("web");
 	
 	private static final String URL = 
 			"jdbc:mysql://localhost:3306/StuProgDB?characterEncoding=UTF-8&serverTimezone=UTC";
 	private static final String USERNAME = "root";
-	private static final String PASSWORD = "pass";
-	
+	private static final String PASSWORD = "didc001!!";
 	
 	private Connection connection = null;
 	private PreparedStatement selectAllStudentWEB = null;
@@ -33,46 +32,53 @@ public class StudentPersonQuery {
 	public StudentPersonQuery() {
 		try {
 			connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
-			
-			selectAllStudentWEB = 
-				connection.prepareStatement("SELECT * FROM WEBPROG");
-			selectAllStudentOOP = 
-					connection.prepareStatement("SELECT * FROM OOP");
-			selectAllStudentAOOP = 
-					connection.prepareStatement("SELECT * FROM AOOP");
-			
-			selectStudentIDWEB = 
-				connection.prepareStatement("SELECT * FROM WEBPROG WHERE stuID = ?");
-			selectStudentIDOOP = 
-					connection.prepareStatement("SELECT * FROM OOP WHERE stuID = ?");
-			selectStudentIDAOOP = 
-					connection.prepareStatement("SELECT * FROM AOOP WHERE stuID = ?");
-			
-			insertNewStudentWEB = connection.prepareStatement(
-				"INSERT INTO WEBPROG " +
-				"(stuName, stuID, stuTeam, stuUniq) " +
-				"VALUES (?, ?, ?, ?)");
-			insertNewStudentOOP = connection.prepareStatement(
-					"INSERT INTO OOP " +
-					"(stuName, stuID, stuTeam, stuUniq) " +
-					"VALUES (?, ?, ?, ?)");
-			insertNewStudentAOOP = connection.prepareStatement(
-					"INSERT INTO AOOP " +
-					"(stuName, stuID, stuTeam, stuUniq) " +
-					"VALUES (?, ?, ?, ?)");
-			
+			if(f.s == f.java.get("web")) {
+				selectAllStudentWEB = 
+						connection.prepareStatement("SELECT * FROM WEBPROG");
+				selectStudentIDWEB = 
+						connection.prepareStatement("SELECT * FROM WEBPROG WHERE stuID = ?");
+				insertNewStudentWEB = connection.prepareStatement(
+						"INSERT INTO WEBPROG " +
+						"(stuName, stuID, stuTeam, stuUniq) " +
+						"VALUES (?, ?, ?, ?)");
+			}else if(f.s == f.java.get("oop")) {
+				selectAllStudentOOP = 
+						connection.prepareStatement("SELECT * FROM OOP");
+				selectStudentIDOOP = 
+						connection.prepareStatement("SELECT * FROM OOP WHERE stuID = ?");
+				insertNewStudentOOP = connection.prepareStatement(
+						"INSERT INTO OOP " +
+						"(stuName, stuID, stuTeam, stuUniq) " +
+						"VALUES (?, ?, ?, ?)");
+			}else if(f.s == f.java.get("AOOP")){
+				selectAllStudentAOOP = 
+						connection.prepareStatement("SELECT * FROM AOOP");
+				selectStudentIDAOOP = 
+						connection.prepareStatement("SELECT * FROM AOOP WHERE stuID = ?");
+				insertNewStudentAOOP = connection.prepareStatement(
+						"INSERT INTO AOOP " +
+						"(stuName, stuID, stuTeam, stuUniq) " +
+						"VALUES (?, ?, ?, ?)");
+			}
 		}catch(SQLException sqlException) {
 			sqlException.printStackTrace();
 			System.exit(1);
 		}
 	}
 	
-	public List<Student> getAllPeople(){
+	public List<Student> getAllStudent(){
 		List<Student> results = null;
 		ResultSet resultSet = null;
 		
 		try {
-			resultSet = selectAllStudentWEB.executeQuery();
+			if(f.s == f.java.get("web")) {
+				resultSet = selectAllStudentWEB.executeQuery();
+			}else if(f.s == f.java.get("oop")) {
+				resultSet = selectAllStudentOOP.executeQuery();
+			}else if(f.s == f.java.get("aoop")) {
+				resultSet = selectAllStudentAOOP.executeQuery();
+			}
+				
 			results = new ArrayList<Student>();
 			
 			while(resultSet.next()) {
@@ -95,14 +101,21 @@ public class StudentPersonQuery {
 		return results;
 	}
 	
-	public List<Student> getPeopleByLastName(String name){
+	public List<Student> getStudentID(String stuID){
 		List<Student> results = null;
 		ResultSet resultSet = null;
 		
 		try {
-			selectStudentIDWEB.setString(1, name);
-			
-			resultSet = selectStudentIDWEB.executeQuery();
+			if(f.s == f.java.get("web")) {
+				selectStudentIDWEB.setString(1, stuID);
+				resultSet = selectStudentIDWEB.executeQuery();
+			}else if(f.s == f.java.get("oop")) {
+				selectStudentIDOOP.setString(1, stuID);
+				resultSet = selectStudentIDOOP.executeQuery();
+			}else if(f.s == f.java.get("aoop")) {
+				selectStudentIDAOOP.setString(1, stuID);
+				resultSet = selectStudentIDAOOP.executeQuery();
+			}
 			
 			results = new ArrayList<Student>();
 			
@@ -130,12 +143,25 @@ public class StudentPersonQuery {
 		int result = 0;
 		
 		try {
-			insertNewStudentWEB.setString(1, stuName);
-			insertNewStudentWEB.setInt(2, stuID);
-			insertNewStudentWEB.setString(3, stuTeam);
-			insertNewStudentWEB.setString(4, stuUniq);
-			
-			result = insertNewStudentWEB.executeUpdate();
+			if(f.s == f.java.get("web")) {
+				insertNewStudentWEB.setString(1, stuName);
+				insertNewStudentWEB.setInt(2, stuID);
+				insertNewStudentWEB.setString(3, stuTeam);
+				insertNewStudentWEB.setString(4, stuUniq);
+				result = insertNewStudentWEB.executeUpdate();
+			}else if(f.s == f.java.get("oop")){
+				insertNewStudentOOP.setString(1, stuName);
+				insertNewStudentOOP.setInt(2, stuID);
+				insertNewStudentOOP.setString(3, stuTeam);
+				insertNewStudentOOP.setString(4, stuUniq);
+				result = insertNewStudentOOP.executeUpdate();
+			}else if(f.s == f.java.get("aoop")){
+				insertNewStudentAOOP.setString(1, stuName);
+				insertNewStudentAOOP.setInt(2, stuID);
+				insertNewStudentAOOP.setString(3, stuTeam);
+				insertNewStudentAOOP.setString(4, stuUniq);
+				result = insertNewStudentAOOP.executeUpdate();
+			}
 		}catch(SQLException sqlException) {
 			sqlException.printStackTrace();
 			close();
@@ -149,6 +175,13 @@ public class StudentPersonQuery {
 		}catch(SQLException sqlException) {
 			sqlException.printStackTrace();
 		}
+	}
+	
+	public static void main(String[] args) {
+		Frame f = new Frame();
+		f.s = f.java.get("web");
+		
+		new StudentPersonQuery();
 	}
 	
 }
