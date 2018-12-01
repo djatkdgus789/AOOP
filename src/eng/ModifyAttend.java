@@ -88,7 +88,7 @@ public class ModifyAttend {
 					int i15 = Integer.parseInt(tf_w15_modifyattend.getText());
 					int i16 = Integer.parseInt(tf_w16_modifyattend.getText());
 
-					s.addAttendence(s.getName(), stunum, i1, i2, i3, i4, i5, i6, i7, i8, i9, i10, i11, i12, i13, i14,
+					s.addAttendence(stunum, i1, i2, i3, i4, i5, i6, i7, i8, i9, i10, i11, i12, i13, i14,
 							i15, i16);
 					s.viewAttend();
 				}

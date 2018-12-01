@@ -24,7 +24,7 @@ public class Test {
 
 		f.s.addScore(1, 30, 30, 30, 30, 30, 30);
 		f.s.addScore(2, 10, 10, 10, 10, 10, 10);
-		f.s.addScore(3, 20, 20, 20, 20, 20, 20);
+		f.s.addScore(3, 20, 20, 20, 20,100,20);
 		f.s.addScore(5, 100, 100, 100, 100, 100, 100);
 		f.s.addScore(7, 20, 20, 20, 20, 20, 20);
 		// System.out.println(f.s.getAverofTotal() + f.s.getRank(60152208) +

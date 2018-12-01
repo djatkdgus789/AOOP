@@ -370,15 +370,23 @@ public class Frame extends JFrame implements ActionListener {
 			break;
 
 		case "Graph for mid":
-			new Graph_mid(s);
+			new Graph(s,1);
 			break;
 
 		case "Graph for last":
-			new Graph_last(s);
+			new Graph(s,2);
+			break;
+			
+		case "Graph for quiz":
+			new Graph(s,3);
+			break;
+			
+		case "Graph for pres":
+			new Graph(s,4);
 			break;
 		
 		case "Graph for report":
-			new Graph_report(s);
+			new Graph(s,5);
 		
 		}
 	}
