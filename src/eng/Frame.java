@@ -281,6 +281,14 @@ public class Frame extends JFrame implements ActionListener {
 		case "Load DB":
 			System.out.println("Load DB");
 			break;
+		
+		case "Input CSV":
+			break;
+			
+		case "Save CSV":
+			System.out.println("Input CSV");
+			new FileWrite(s);
+			break;
 
 		case "Chgweight":
 			new Chgweight(s);
@@ -372,7 +380,7 @@ public class Frame extends JFrame implements ActionListener {
 			break;
 		
 		case "Graph for report":
-			
+			new Graph_report(s);
 		
 		}
 	}

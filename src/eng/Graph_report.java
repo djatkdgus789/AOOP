@@ -4,18 +4,14 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.Dimension;
-import java.awt.Font;
 import java.awt.Graphics;
-import java.awt.GridLayout;
-import java.awt.Toolkit;
-import java.util.ArrayList;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-public class Graph_last extends JFrame {
+@SuppressWarnings("serial")
+public class Graph_report extends JFrame {
 	public Subject s;
-	Graph_last(Subject s) {
+	Graph_report(Subject s) {
 		this.s = s;
 		JFrame frame = new JFrame("성적 그래프 프로그램");
 		frame.setLocation(500, 200);
@@ -53,7 +49,7 @@ class DrawingPanel extends JPanel {
 		int score90_100 = 0;
 
 		for ( Student std : s.std_list) {
-			int temp=std.getScore().getLast();
+			int temp=std.getScore().getReport();
 			if(temp >= 0 && temp <10) {
 				score0_9++;
 			}
