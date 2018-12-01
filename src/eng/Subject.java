@@ -69,6 +69,7 @@ public class Subject {
 			}
 
 		});
+		calRank();
 		/*
 		 * Student student = new Student(name, num, team, unique) s.setMid(, (mid));
 		 * s.setLast(, (last)); s.setAssign(, (assign)); s.setQuiz(, (quiz));
@@ -84,7 +85,7 @@ public class Subject {
 				s.getAttend().check(i1, i2, i3, i4, i5, i6, i7, i8, i9, i10, i11, i12, i13, i14, i15, i16);
 			}
 		});
-
+		calRank();
 	}
 
 	public String getName() {
@@ -146,7 +147,7 @@ public class Subject {
 		temp = std_list.get(0);
 		
 		for (int i = 0; i < std_list.size(); i++) {
-			// temp의초기값 설정, Rank가 0이 아닌 배열이 와야
+			// temp의초기값 설정, Rank가 0이 아닌 배열이 와야함 
 			for (int j = 0; j < std_list.size(); j++) {
 				if(std_list.get(j).getRank() == 0) {
 					temp = std_list.get(j);
@@ -154,13 +155,13 @@ public class Subject {
 				}
 			}
 			
-			// 랭크가 0인 학생들 중에서 총점이 제일 큰 학생을 찾
+			// 랭크가 0인 학생들 중에서 총점이 제일 큰 학생을 찾음 
 			for (int j = 0; j < std_list.size(); j++) {	
 				if(temp.getTotal() < std_list.get(j).getTotal() && std_list.get(j).getRank() == 0 ) {
 					temp = std_list.get(j);
 				}
 			}
-			//찾은 학생의 등수를 설
+			//찾은 학생의 등수를 설정 
 			temp.setRank(i+1);
 			System.out.println(temp.getName());
 			System.out.println(temp.getTotal());
@@ -169,7 +170,6 @@ public class Subject {
 	}
 
 	public int getRank(int std_num) {
-		calRank();
 		int temp = 0;
 		for (Student student : std_list) {
 			if (student.getStd_num() == std_num) {
@@ -185,14 +185,14 @@ public class Subject {
 			if (student.getStd_num() == std_num) {
 				float percent;
 				
-				percent = (float)student.getRank()/(float)std_list.size()*100;
+				percent = student.getRank()*100/std_list.size();
 				
 				System.out.println(percent);
 				System.out.println(student.getRank());
 				if(percent <= ratio[0]) {
 					student.setGrade("A+");
 				}
-				else if(percent > ratio[0] && percent >= ratio[0]+ratio[1]) {
+				else if(percent > ratio[0] && percent <= ratio[0]+ratio[1]) {
 					student.setGrade("A0");
 				}
 				else if(percent > ratio[0]+ratio[1] && percent <= ratio[0]+ratio[1]+ratio[2]) {
