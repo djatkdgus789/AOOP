@@ -171,9 +171,7 @@ public class Frame extends JFrame implements ActionListener {
 		item = new JMenuItem("Graph for report");
 		item.addActionListener(this);
 		graph.add(item);
-		item = new JMenuItem("Graph for attend");
-		item.addActionListener(this);
-		graph.add(item);
+		
 
 		mb.add(file);
 		mb.add(subj);

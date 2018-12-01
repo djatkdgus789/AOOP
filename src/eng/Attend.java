@@ -12,12 +12,11 @@ public class Attend {
 	Attend() {
 		attend = 0;
 	}
-
 	// 출석입력,수정 F001, F002
 	public void check(int i1, int i2, int i3, int i4, int i5, int i6, int i7, int i8, int i9, int i10, int i11, int i12,
 			int i13, int i14, int i15, int i16) {
 		attend = 0;
-
+		System.out.println(attend);
 		attend += i1;
 		attend += i2;
 		attend += i3;
