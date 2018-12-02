@@ -42,6 +42,12 @@ public class Subject {
 
 	// 학생 추가 F012
 	public void addStudent(Student s) {
+		this.std_list.forEach(x -> {
+			if(x.getStd_num() == s.getStd_num()) {
+				System.out.println("학번 중복 ");
+				return;
+			}
+		});
 		this.std_list.add(s);
 	}
 
