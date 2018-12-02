@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -15,8 +16,11 @@ import javax.swing.JPanel;
 
 public class DBWrite extends JFrame{
 	Subject s;
+	Frame f = new Frame();
+	
 	public DBWrite(Subject s) {
 		Connection connection = null;
+		
 		this.s = s;
 		
 		setTitle("DBSAVE");
@@ -24,10 +28,40 @@ public class DBWrite extends JFrame{
 		ActionListener l = new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-			    	   for(Student std : s.std_list) {
+					for(Student std : s.std_list) {
+			    		   String q = null;
+			    		   String cource = null;
 			    		   // 디비에 해당 학번이 있는지 확인해야됨. if()
+			    		   if(f.s == f.java.get("web")) {
+			    			   cource = "WEBPROG";
+			    			   q = "SELECT "+std.getStd_num()+" FROM WEBPROG";
+			    			   PreparedStatement pst = connection.prepareStatement(q);
+			    			   pst.execute();
+			    			   if(pst.execute() == false) {
+			    				   continue;
+			    			   }  
+			    			   pst.close();
+			    		   }else if(f.s == f.java.get("oop")) {
+			    			   cource = "OOP";
+			    			   q = "SELECT "+std.getStd_num()+" FROM OOP";
+			    			   PreparedStatement pst = connection.prepareStatement(q);
+			    			   pst.execute();
+			    			   if(pst.execute() == false) {
+			    				   continue;
+			    			   }
+			    			   pst.close();
+			    		   }else if(f.s == f.java.get("aoop")) {
+			    			   cource = "AOOP";
+			    			   q = "SELECT "+std.getStd_num()+" FROM AOOP";
+			    			   PreparedStatement pst = connection.prepareStatement(q);
+			    			   pst.execute();
+			    			   if(pst.execute() == false) {
+			    				   continue;
+			    			   }
+			    			   pst.close();
+			    		   }
 			    		   //과목이 뭔지 확인하고  아래 쿼리문에서 WEBPROG만 바꾸면 됨. OOP AOOP
-			    		   String query = "UPDATE WEBPROG SET stuID='"+std.getStd_num()+"' ,stuName='"+std.getName()+
+			    		   String query = "UPDATE "+cource+" SET stuID='"+std.getStd_num()+"' ,stuName='"+std.getName()+
 			    				   "' ,stuTeam='"+std.getTeam()+"' ,stuUniq='"+std.getUnique()+"' ,mid='"+
 			    				   std.getScore().getMid()+"' ,last='"+std.getScore().getLast()+"' ,assignment='"+
 			    				   std.getScore().getAssignment()+"' ,report='"+std.getScore().getReport()+"' ,quiz='"+
@@ -49,31 +83,20 @@ public class DBWrite extends JFrame{
 			    		   pst.close();
 			    	   }
 			    	   
-			       }catch(Exception e) {
-			    	   e.printStackTrace();
+			       }catch(SQLException sqlException) {
+			    	   sqlException.printStackTrace();
 			       }
 			}
 		};
-		
-		JPanel p = new JPanel(new FlowLayout());
-		
 		JButton save = new JButton("SAVE");
+		save.addActionListener(l);
 		
-		p.setSize(300, 200);
-		p.setVisible(true);
+		add(save);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setSize(100, 100);
+		setVisible(true);
+		
 	}
-/*	
-	public DBWrite(Subject s) {
-		// TODO Auto-generated constructor stub
-		this.s = s;
-		try {
-			Write(s);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-*/	
-
  
 }
+

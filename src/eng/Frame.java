@@ -274,11 +274,13 @@ public class Frame extends JFrame implements ActionListener {
 
 		case "Save DB":
 			System.out.println("Save DB");
-			break;
+			new DBWrite(s);
+      break;
 
 		case "Load DB":
 			System.out.println("Load DB");
-			break;
+			new DBLoad(s);
+      break;
 		
 		case "Input CSV":
 			new FileRead(s);
