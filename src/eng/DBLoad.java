@@ -4,9 +4,13 @@ import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.PrintWriter;
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -15,8 +19,26 @@ import javax.swing.JPanel;
 public class DBLoad extends JFrame{
 	Subject s;
 	Frame f = new Frame();
+	private Connection connection = null;
+	Statement stmt = null;
+	ResultSet rs = null;
+	
 	public DBLoad(Subject s) {
-		Connection connection = null;
+		
+		//다른 방법....
+		try {
+			stmt = connection.createStatement();
+			rs = stmt.executeQuery("SELECT * FROM WEBPROG");
+			
+			//텍스트 필드 만들어서 보여줘야하나?????
+			while(rs.next()) {
+				System.out.println(rs.getString("stuName")+"\t"+
+						rs.getInt("stuID")+"\t"+rs.getString("stuTeam")+
+						"\t"+rs.getString("stuUniq"));
+			}
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
 		
 		this.s = s;
 		

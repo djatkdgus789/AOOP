@@ -43,39 +43,39 @@ public class DBWrite extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 				try {
 					for(Student std : s.std_list) {
-			    		   String q = null;
-			    		   String cource = null;
-			    		   // 디비에 해당 학번이 있는지 확인해야됨. if()
-			    		   if(f.s == f.java.get("web")) {
-			    			   cource = "WEBPROG";
-			    			   q = "SELECT "+std.getStd_num()+" FROM WEBPROG";
-			    			   PreparedStatement pst = connection.prepareStatement(q);
-			    			   pst.execute();
-			    			   if(pst.execute() == false) {
-			    				   continue;
-			    			   }  
-			    			   pst.close();
-			    		   }else if(f.s == f.java.get("oop")) {
-			    			   cource = "OOP";
-			    			   q = "SELECT "+std.getStd_num()+" FROM OOP";
-			    			   PreparedStatement pst = connection.prepareStatement(q);
-			    			   pst.execute();
-			    			   if(pst.execute() == false) {
-			    				   continue;
-			    			   }
-			    			   pst.close();
-			    		   }else if(f.s == f.java.get("aoop")) {
-			    			   cource = "AOOP";
-			    			   q = "SELECT "+std.getStd_num()+" FROM AOOP";
-			    			   PreparedStatement pst = connection.prepareStatement(q);
-			    			   pst.execute();
-			    			   if(pst.execute() == false) {
-			    				   continue;
-			    			   }
-			    			   pst.close();
-			    		   }
+						String q = null;
+			    		String cource = null;
+			    		// 디비에 해당 학번이 있는지 확인해야됨. if()
+			    		if(f.s == f.java.get("web")) {
+			    			cource = "WEBPROG";
+			    			q = "SELECT "+std.getStd_num()+" FROM WEBPROG";
+			    			PreparedStatement pst = connection.prepareStatement(q);
+			    			pst.execute();
+			    			if(pst.execute() == false) {
+			    			   continue;
+			    		   }  
+			    		   pst.close();
+			    	   }else if(f.s == f.java.get("oop")) {
+			   			   cource = "OOP";
+			   			   q = "SELECT "+std.getStd_num()+" FROM OOP";
+			   			   PreparedStatement pst = connection.prepareStatement(q);
+			   			   pst.execute();
+		    			   if(pst.execute() == false) {
+		    				   continue;
+		    			   }
+		    			   pst.close();
+			    	   }else if(f.s == f.java.get("aoop")) {
+			    		   cource = "AOOP";
+			   			   q = "SELECT "+std.getStd_num()+" FROM AOOP";
+			   			   PreparedStatement pst = connection.prepareStatement(q);
+			   			   pst.execute();
+			   			   if(pst.execute() == false) {
+		    				   continue;
+		    			   }
+		    			   pst.close();
+		    		   }
 			    		   //과목이 뭔지 확인하고  아래 쿼리문에서 WEBPROG만 바꾸면 됨. OOP AOOP
-			    		   String query = "UPDATE "+cource+" SET stuID='"+std.getStd_num()+"' ,stuName='"+std.getName()+
+			    	   String query = "UPDATE "+cource+" SET stuID='"+std.getStd_num()+"' ,stuName='"+std.getName()+
 			    				   "' ,stuTeam='"+std.getTeam()+"' ,stuUniq='"+std.getUnique()+"' ,mid='"+
 			    				   std.getScore().getMid()+"' ,last='"+std.getScore().getLast()+"' ,assignment='"+
 			    				   std.getScore().getAssignment()+"' ,report='"+std.getScore().getReport()+"' ,quiz='"+
@@ -90,16 +90,16 @@ public class DBWrite extends JFrame{
 			    				   std.getAttend().getI15()+"' ,attend16='"+std.getAttend().getI1()+"' ";
 			    				   
 			    				   
-			    		   PreparedStatement pst = connection.prepareStatement(query);
+			    	   PreparedStatement pst = connection.prepareStatement(query);
 			    		    	   
-			    		   //JOptionPane.showMessageDialog(null, "Data Updated");
-			    		   pst.execute();
-			    		   pst.close();
-			    	   }
+			    	   //JOptionPane.showMessageDialog(null, "Data Updated");
+			    	   pst.execute();
+			   		   pst.close();
+			   	   }
 			    	   
-			       }catch(SQLException sqlException) {
-			    	   sqlException.printStackTrace();
-			       }
+				}catch(SQLException sqlException) {
+					sqlException.printStackTrace();
+			    }
 			}
 		};
 		JButton save = new JButton("SAVE");
