@@ -16,7 +16,7 @@ public class FileWrite {
 		}
 	}
     public static void Write(Subject s) throws IOException {
-        PrintWriter pw = new PrintWriter("./out.txt");
+        PrintWriter pw = new PrintWriter("./out.csv");
         for(Student std : s.std_list) {
             String data = std.getName()+","+std.getStd_num()+","+std.getScore().getMid()+","+
             				std.getScore().getLast()+","+std.getScore().getAssignment()+","+
