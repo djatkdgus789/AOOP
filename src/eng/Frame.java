@@ -360,10 +360,12 @@ public class Frame extends JFrame implements ActionListener {
 			
 		case "Sort ascending by Total Score":
 			s.sort_total_Score_Ascending();
+			this.view();
 			break;
 			
 		case "Sort descending by Total Score":
 			s.sort_total_Score_Descending();
+			this.view();
 			break;
 			
 		case "Sort by stunum":
