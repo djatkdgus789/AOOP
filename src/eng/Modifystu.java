@@ -84,7 +84,7 @@ public class Modifystu {
 			if (l.getSource() == mod) {
 				String name = tf_name_mod.getText();
 				int stunum = Integer.parseInt(tf_stunum_mod.getText());
-				int team = Integer.parseInt(tf_team_mod.getText());
+				String team = tf_team_mod.getText();
 				String unique = tf_unique_mod.getText();
 				s.std_list.forEach((x) -> {
 					if (x.getStd_num() == stunum) {

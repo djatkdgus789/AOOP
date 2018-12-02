@@ -21,7 +21,7 @@ public class FileRead {
     	String[] split = null;
     	while((line=bf.readLine()) != null){
     		split = line.split(",");
-    		Student student = new Student(split[0], Integer.parseInt(split[1]), Integer.parseInt(split[2]),
+    		Student student = new Student(split[0], Integer.parseInt(split[1]), split[2],
     				split[3]);
     		
     		s.addStudent(student);

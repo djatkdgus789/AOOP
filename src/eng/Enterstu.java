@@ -51,7 +51,7 @@ public class Enterstu {
 				if (l.getSource() == save_enter) {
 					String name = tf_name_enter.getText();
 					int stunum = Integer.parseInt(tf_stunum_enter.getText());
-					int team = Integer.parseInt(tf_team_enter.getText());
+					String team = tf_team_enter.getText();
 					String unique = tf_unique_enter.getText();
 
 					s.addStudent(new Student(name, stunum, team, unique));

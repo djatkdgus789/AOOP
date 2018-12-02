@@ -8,15 +8,15 @@ public class Test {
 		Frame f = new Frame();
 		f.s = f.java.get("web");
 
-		Student s = new Student("엄상", 1, 1, "reqqer");
+		Student s = new Student("엄상", 1, "1", "reqqer");
 		f.s.addStudent(s);
-		s = new Student("꼼상", 2, 1, "ㅁㄴ");
+		s = new Student("꼼상", 2, "1", "ㅁㄴ");
 		f.s.addStudent(s);
-		s = new Student("밥상", 3, 1, "ㅇㄹ");
+		s = new Student("밥상", 3, "1", "ㅇㄹ");
 		f.s.addStudent(s);
-		s = new Student("라면", 5, 1, "ㅇㄹ");
+		s = new Student("라면", 5, "1", "ㅇㄹ");
 		f.s.addStudent(s);
-		s = new Student("상현", 7, 1, "ㅇㄹ");
+		s = new Student("상현", 7, "1", "ㅇㄹ");
 		f.s.addStudent(s);
 		System.out.println(f.s.std_list.size());
 		f.s.addAttendence(1, -1, -1, -1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);

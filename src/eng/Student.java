@@ -5,7 +5,7 @@ import java.util.Map;
 public class Student {
 	private String name; // 이름
 	private int std_num; // 학번
-	private int team; // 팀
+	private String team; // 팀
 	private String unique; // 특이사항
 	private Score score; // 점수 관리 객체
 	private Attend attend; // 출석 관리 객체
@@ -14,7 +14,7 @@ public class Student {
 	private int rank; // 등수
 
 	// 학생 생성자
-	public Student(String name, int num, int team, String unique) {
+	public Student(String name, int num, String team, String unique) {
 		this.name = name;
 		this.std_num = num;
 		this.team = team;
@@ -82,12 +82,12 @@ public class Student {
 	}
 
 	// 팀 getter
-	public int getTeam() {
+	public String getTeam() {
 		return team;
 	}
 
 	// 팀 setter
-	public void setTeam(int team) {
+	public void setTeam(String team) {
 		this.team = team;
 	}
 
