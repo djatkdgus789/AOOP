@@ -127,34 +127,34 @@ class DrawingPanel extends JPanel {
 		case 3:
 			for (Student std : s.std_list) {
 				int temp=std.getScore().getQuiz();
-				if(temp >= 0 && temp <10) {
+				if(temp >= 0 && temp <1) {
 					score0_9++;
 				}
-				else if(temp >= 10 && temp <20) {
+				else if(temp >= 1 && temp <2) {
 					score10_19++;
 				}
-				else if(temp >= 20 && temp <30) {
+				else if(temp >= 2 && temp <3) {
 					score20_29++;
 				}
-				else if(temp >= 30 && temp <40) {
+				else if(temp >= 3 && temp <4) {
 					score30_39++;
 				}
-				else if(temp >= 40 && temp <50) {
+				else if(temp >= 4 && temp <5) {
 					score40_49++;
 				}
-				else if(temp >= 50 && temp <60) {
+				else if(temp >= 5 && temp <6) {
 					score50_59++;
 				}
-				else if(temp >= 60 && temp <70) {
+				else if(temp >= 6 && temp <7) {
 					score60_69++;
 				}			
-				else if(temp >= 70 && temp <80) {
+				else if(temp >= 7 && temp <8) {
 					score70_79++;
 				}
-				else if(temp >= 80 && temp <90) {
+				else if(temp >= 8 && temp <9) {
 					score80_89++;
 				}
-				else if(temp >= 90 && temp <=100) {
+				else if(temp >= 9 && temp <=10) {
 					score90_100++;
 				}
 			}
@@ -162,34 +162,34 @@ class DrawingPanel extends JPanel {
 		case 4:
 			for (Student std : s.std_list) {
 				int temp=std.getScore().getPresentation();
-				if(temp >= 0 && temp <10) {
+				if(temp >= 0 && temp <1) {
 					score0_9++;
 				}
-				else if(temp >= 10 && temp <20) {
+				else if(temp >= 1 && temp <2) {
 					score10_19++;
 				}
-				else if(temp >= 20 && temp <30) {
+				else if(temp >= 2 && temp <3) {
 					score20_29++;
 				}
-				else if(temp >= 30 && temp <40) {
+				else if(temp >= 3 && temp <4) {
 					score30_39++;
 				}
-				else if(temp >= 40 && temp <50) {
+				else if(temp >= 4 && temp <5) {
 					score40_49++;
 				}
-				else if(temp >= 50 && temp <60) {
+				else if(temp >= 5 && temp <6) {
 					score50_59++;
 				}
-				else if(temp >= 60 && temp <70) {
+				else if(temp >= 6 && temp <7) {
 					score60_69++;
 				}			
-				else if(temp >= 70 && temp <80) {
+				else if(temp >= 7 && temp <8) {
 					score70_79++;
 				}
-				else if(temp >= 80 && temp <90) {
+				else if(temp >= 8 && temp <9) {
 					score80_89++;
 				}
-				else if(temp >= 90 && temp <=100) {
+				else if(temp >= 9 && temp <=10) {
 					score90_100++;
 				}
 			}
@@ -197,43 +197,43 @@ class DrawingPanel extends JPanel {
 
 		case 5:
 			for (Student std : s.std_list) {
-				int temp=std.getScore().getMid();
-				if(temp >= 0 && temp <10) {
+				int temp=std.getScore().getReport();
+				if(temp >= 0 && temp <1) {
 					score0_9++;
 				}
-				else if(temp >= 10 && temp <20) {
+				else if(temp >= 1 && temp <2) {
 					score10_19++;
 				}
-				else if(temp >= 20 && temp <30) {
+				else if(temp >= 2 && temp <3) {
 					score20_29++;
 				}
-				else if(temp >= 30 && temp <40) {
+				else if(temp >= 3 && temp <4) {
 					score30_39++;
 				}
-				else if(temp >= 40 && temp <50) {
+				else if(temp >= 4 && temp <5) {
 					score40_49++;
 				}
-				else if(temp >= 50 && temp <60) {
+				else if(temp >= 5 && temp <6) {
 					score50_59++;
 				}
-				else if(temp >= 60 && temp <70) {
+				else if(temp >= 6 && temp <7) {
 					score60_69++;
 				}			
-				else if(temp >= 70 && temp <80) {
+				else if(temp >= 7 && temp <8) {
 					score70_79++;
 				}
-				else if(temp >= 80 && temp <90) {
+				else if(temp >= 8 && temp <9) {
 					score80_89++;
 				}
-				else if(temp >= 90 && temp <=100) {
+				else if(temp >= 9 && temp <=10) {
 					score90_100++;
 				}
 			}
 			break;
 
 		}
-		System.out.print(score0_9+"^"+score10_19+"^"+score20_29+"^"+score30_39+"^"+score40_49+"^"+score50_59+"^"+
-				score60_69+"^"+score70_79+"^"+score80_89+"^"+score90_100);
+	//	System.out.print(score0_9+"^"+score10_19+"^"+score20_29+"^"+score30_39+"^"+score40_49+"^"+score50_59+"^"+
+	//			score60_69+"^"+score70_79+"^"+score80_89+"^"+score90_100);
 		g.clearRect(0, 0, getWidth(), getHeight());
 		g.drawLine(50, 250, 350, 250);
 		g.drawLine(50, 20, 50, 250);

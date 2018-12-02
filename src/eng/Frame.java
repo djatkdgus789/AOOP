@@ -370,6 +370,7 @@ public class Frame extends JFrame implements ActionListener {
 			
 		case "Sort by stunum":
 			s.sort_Std_num_Ascending();
+			this.view();
 			break;
 
 		case "Graph for mid":
