@@ -15,7 +15,7 @@ public class FileRead {
 		}
 	}
     public static void Read(Subject s) throws IOException {
-    	FileReader fr = new FileReader("./out.txt");
+    	FileReader fr = new FileReader("./input.csv");
     	BufferedReader bf = new BufferedReader(fr);
     	String line = null;
     	String[] split = null;
