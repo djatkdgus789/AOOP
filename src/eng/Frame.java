@@ -281,6 +281,7 @@ public class Frame extends JFrame implements ActionListener {
 			break;
 		
 		case "Input CSV":
+			new FileRead(s);
 			break;
 			
 		case "Save CSV":
