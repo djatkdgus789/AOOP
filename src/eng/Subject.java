@@ -42,9 +42,10 @@ public class Subject {
 
 	// 학생 추가 F012
 	public void addStudent(Student s) {
+		System.out.println("학번 중복" + s.getStd_num());
 		this.std_list.forEach(x -> {
 			if(x.getStd_num() == s.getStd_num()) {
-				System.out.println("학번 중복 ");
+				System.out.println("학번 중복" + s.getStd_num());
 				return;
 			}
 		});
@@ -100,30 +101,22 @@ public class Subject {
 
 	// 평균 getter
 
-	// 중간고사 오름차순 정렬
+	// total 오름차순 정렬
 	public void sort_total_Score_Ascending() {
 		this.std_list.sort(new Comparator<Student>() {
 			@Override
 			public int compare(Student o1, Student o2) {
-				if (o1.getTotal() - o2.getTotal() > 0) {
-					return 0;
-				} else {
-					return -1;
-				}
+				return Double.compare(o1.getTotal(), o2.getTotal());
 			}
 		});
 
 	}
-	// 중간고사 오름차순 정렬
+	// total 오름차순 정렬
 	public void sort_total_Score_Descending() {
 		this.std_list.sort(new Comparator<Student>() {
 			@Override
 			public int compare(Student o1, Student o2) {
-				if (o2.getTotal() - o1.getTotal() > 0) {
-					return 0;
-				} else {
-					return -1;
-				}
+				return Double.compare(o2.getTotal(), o1.getTotal());
 			}
 		});
 
@@ -134,11 +127,7 @@ public class Subject {
 		this.std_list.sort(new Comparator<Student>() {
 			@Override
 			public int compare(Student o1, Student o2) {
-				if (o1.getStd_num() - o2.getStd_num() > 0) {
-					return 0;
-				} else {
-					return -1;
-				}
+				return Integer.compare(o1.getStd_num(), o2.getStd_num());
 			}
 		});
 	}
