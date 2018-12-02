@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
@@ -18,9 +19,22 @@ public class DBWrite extends JFrame{
 	Subject s;
 	Frame f = new Frame();
 	
+	private static final String URL = 
+			"jdbc:mysql://localhost:3306/StuProgDB?characterEncoding=UTF-8&serverTimezone=UTC";
+	private static final String USERNAME = "root";
+	private static final String PASSWORD = "1234";
+	private Connection connection = null;
+
 	public DBWrite(Subject s) {
-		Connection connection = null;
-		
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+			System.out.println("DB Connect!!");
+		}catch(ClassNotFoundException ex){
+			System.out.println(ex.getMessage());
+		}catch(SQLException ex) {
+			System.out.println("SQLException: " + ex.getMessage());
+		}
 		this.s = s;
 		
 		setTitle("DBSAVE");
