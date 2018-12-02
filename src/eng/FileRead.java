@@ -19,6 +19,7 @@ public class FileRead {
     	BufferedReader bf = new BufferedReader(fr);
     	String line = null;
     	String[] split = null;
+    	bf.readLine();
     	while((line=bf.readLine()) != null){
     		split = line.split(",");
     		Student student = new Student(split[0], Integer.parseInt(split[1]), split[2],
