@@ -16,7 +16,7 @@ public class Subject {
 		this.name = name;
 		this.std_list = new ArrayList<Student>();
 	}
-	// 성적 비율 수정
+	// 성적 비율 수정 F20
 	public void changeRatio(int A_plus, int A_zero, int B_plus, int B_zero, int C_plus, int C_zero, int D, int F) {
 		ratio[0] = A_plus;
 		ratio[1] = A_zero;
@@ -27,7 +27,7 @@ public class Subject {
 		ratio[6] = D;
 		ratio[7] = F;
 	}
-	// 점수 반영비율 수정
+	// 점수 반영비율 수정 
 	public void changeWeight(int mid, int last, int assign, int quiz, int pres, int report, int attend) {
 		weight[0] = mid;
 		weight[1] = last;
