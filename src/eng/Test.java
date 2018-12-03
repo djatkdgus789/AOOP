@@ -30,8 +30,7 @@ public class Test {
 		// System.out.println(f.s.getAverofTotal() + f.s.getRank(60152208) +
 		// f.s.getRank(60152215) + f.s.getRank(60171523));
 		// f.s.sort_Std_num_Ascending();
-		f.s.view("web");
-		f.s.viewAttend();
+
 	}
 
 }
