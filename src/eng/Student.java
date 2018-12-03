@@ -22,88 +22,72 @@ public class Student {
 		attend = new Attend();
 		score = new Score();
 	}
-
+	
+	//Attend getter
 	public Attend getAttend() {
 		return attend;
 	}
-
-	public void setAttend(Attend attend) {
-		this.attend = attend;
-	}
-
-
-
+	//Rank getter
 	public int getRank() {
 		return rank;
 	}
-
-	public String getGrade() {
-		return grade;
-	}
-
-	public void setGrade(String grade) {
-		this.grade = grade;
-	}
-
+	//Rank setter
 	public void setRank(int rank) {
 		this.rank = rank;
 	}
-
+	//Grade getter
+	public String getGrade() {
+		return grade;
+	}
+	//Grade setter
+	public void setGrade(String grade) {
+		this.grade = grade;
+	}
+	//Total getter
 	public double getTotal() {
 		return total;
 	}
-
+	//Total setter
 	public void setTotal(double total) {
 		this.total = total;
 	}
-
+	//Unique getter
 	public String getUnique() {
 		return unique;
 	}
-
-	// 이름 getter
-	public String getName() {
-		return name;
-	}
-
-	// 이름 setter
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	// 학번 getter
-	public int getStd_num() {
-		return std_num;
-	}
-
-	// 학번 setter
-	public void setStd_num(int std_num) {
-		this.std_num = std_num;
-	}
-
-	// 팀 getter
-	public String getTeam() {
-		return team;
-	}
-
-	// 팀 setter
-	public void setTeam(String team) {
-		this.team = team;
-	}
-
 	// 특이사항 setter
 	public void setUnique(String unique) {
 		this.unique = unique;
 	}
-
+	// 이름 getter
+	public String getName() {
+		return name;
+	}
+	// 이름 setter
+	public void setName(String name) {
+		this.name = name;
+	}
+	// 학번 getter
+	public int getStd_num() {
+		return std_num;
+	}
+	// 학번 setter
+	public void setStd_num(int std_num) {
+		this.std_num = std_num;
+	}
+	// 팀 getter
+	public String getTeam() {
+		return team;
+	}
+	// 팀 setter
+	public void setTeam(String team) {
+		this.team = team;
+	}
+	//Score getter
 	public Score getScore() {
 		return score;
 	}
-
-	public void setScore(Score score) {
-		this.score = score;
-	}
-
+	//toString
 	public String toString() {
 		String str = null;
 		String n = this.getName();

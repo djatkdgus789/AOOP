@@ -40,14 +40,7 @@ public class Deletestu {
 //			try {
 			if (l.getSource() == del) {
 				int stunum = Integer.parseInt(tf_stunum_del.getText());
-				Iterator<Student> iter = s.std_list.iterator();
-
-				while (iter.hasNext()) {
-					Student x = iter.next();
-
-					if (x.getStd_num() == stunum)
-						iter.remove();
-				}
+				s.delStudent(stunum);
 //			}
 //			catch(Exception exc) {
 //				tf_name_del.setText("과목을 먼저 ");

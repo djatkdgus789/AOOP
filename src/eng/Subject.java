@@ -2,20 +2,20 @@ package eng;
 
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.Iterator;
 
 public class Subject {
-	private String name;
-	private int[] ratio = { 15, 15, 15, 15, 10, 10, 10, 10 };
-	private int[] weight = { 25, 25, 10, 10, 10, 10, 10 };
+	private String name; // 과목 이
+	private int[] ratio = { 15, 15, 15, 15, 10, 10, 10, 10 }; // 학점 비율
+	private int[] weight = { 25, 25, 10, 10, 10, 10, 10 }; // 점수 가중
 
-	public ArrayList<Student> std_list;
+	public ArrayList<Student> std_list; // 학생들이 저장되어 있는 ArrayList
 
 	// 과목 생성자 F009~11
 	public Subject(String name) {
 		this.name = name;
 		this.std_list = new ArrayList<Student>();
 	}
-
 	// 성적 비율 수정
 	public void changeRatio(int A_plus, int A_zero, int B_plus, int B_zero, int C_plus, int C_zero, int D, int F) {
 		ratio[0] = A_plus;
@@ -27,7 +27,6 @@ public class Subject {
 		ratio[6] = D;
 		ratio[7] = F;
 	}
-
 	// 점수 반영비율 수정
 	public void changeWeight(int mid, int last, int assign, int quiz, int pres, int report, int attend) {
 		weight[0] = mid;
@@ -53,13 +52,14 @@ public class Subject {
 	}
 
 	// 학생 삭제
-	// public void delStudent(Student student) {
-	// if(std_list.contains(student)) {
-	// std_list.remove(student);
-	// } else {
-	// return;//해당 학생 없음
-	// }
-	// }
+	 public void delStudent(int std_num) {
+		 Iterator<Student> iter = this.std_list.iterator();
+			while (iter.hasNext()) {
+				Student x = iter.next();
+				if (x.getStd_num() == std_num)
+					iter.remove();
+			}
+	 }
 	// ConcurrentModificationException 발생
 
 	// 성적 입력,수정 F017~18
@@ -233,7 +233,7 @@ public class Subject {
 				total += student.getScore().getQuiz() * weight[3];
 				total += student.getScore().getPresentation() * weight[4];
 				total += student.getScore().getReport() * weight[5];
-				total += student.getScore().getAttend() * weight[6];
+				total += student.getAttend().getAttend() * weight[6];
 
 				student.setTotal(total / 100);
 			}
@@ -329,7 +329,7 @@ public class Subject {
 			System.out.print(x.getScore().getQuiz());
 			System.out.print(x.getScore().getPresentation());
 			System.out.print(x.getScore().getReport());
-			System.out.print(x.getScore().getAttend());
+			System.out.print(x.getAttend().getAttend());
 			System.out.println(x.getTotal());
 
 		});
