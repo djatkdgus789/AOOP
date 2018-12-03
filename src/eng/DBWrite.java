@@ -7,14 +7,14 @@ import java.sql.SQLException;
 import java.sql.SQLIntegrityConstraintViolationException;
 
 
-
+//F003 입력된 데이터 및 처리결과를 모두 데이터베이스에 저장
 public class DBWrite {
 	Subject s;
 
 	private static final String URL = 
 			"jdbc:mysql://localhost:3306/StuProgDB?characterEncoding=UTF-8&serverTimezone=UTC";
 	private static final String USERNAME = "root";
-	private static final String PASSWORD = "didc001!!";
+	private static final String PASSWORD = "1234";
 	private Connection connection = null;
 
 	public DBWrite(Subject s) {
