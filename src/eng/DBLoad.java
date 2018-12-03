@@ -6,13 +6,13 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-
+//F004 입력된 데이터 및 처리결과를 모두 데이터베이스로부터 불러올 수 있다.
 public class DBLoad {
 	Subject s;
 	private static final String URL = 
 			"jdbc:mysql://localhost:3306/StuProgDB?characterEncoding=UTF-8&serverTimezone=UTC";
 	private static final String USERNAME = "root";
-	private static final String PASSWORD = "didc001!!";
+	private static final String PASSWORD = "1234";
 	private Connection connection = null;
 
 	public DBLoad(Subject s) {
