@@ -18,86 +18,96 @@ import javax.swing.JPanel;
 
 public class DBLoad extends JFrame{
 	Subject s;
-	Frame f = new Frame();
+	private static final String URL = 
+			"jdbc:mysql://localhost:3306/StuProgDB?characterEncoding=UTF-8&serverTimezone=UTC";
+	private static final String USERNAME = "root";
+	private static final String PASSWORD = "didc001!!";
 	private Connection connection = null;
-	Statement stmt = null;
-	ResultSet rs = null;
-	
+
 	public DBLoad(Subject s) {
-		
+
 		//다른 방법....
-		try {
-			stmt = connection.createStatement();
-			rs = stmt.executeQuery("SELECT * FROM WEBPROG");
-			
-			//텍스트 필드 만들어서 보여줘야하나?????
-			while(rs.next()) {
-				System.out.println(rs.getString("stuName")+"\t"+
-						rs.getInt("stuID")+"\t"+rs.getString("stuTeam")+
-						"\t"+rs.getString("stuUniq"));
-			}
-		}catch(SQLException e) {
-			e.printStackTrace();
-		}
-		
 		this.s = s;
-		
-		setTitle("DBLOAD");
-		
-		ActionListener l = new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				JButton btn = (JButton)(e.getSource());
-				
-				String query = null;
-				try {
-					switch(btn.getText()){
-					case "web":
-						query = "SELECT * FROM WEBPROG";
-						PreparedStatement pstweb = connection.prepareStatement(query);
-						pstweb.execute();
-						pstweb.close();
-						break;
-					case "oop":
-						query = "SELECT * FROM WEBAOOP";
-						PreparedStatement pstoop = connection.prepareStatement(query);
-						pstoop.execute();
-						pstoop.close();
-						break;
-					case "aoop":
-						query = "SELECT * FROM WEBAOOP";
-						PreparedStatement pstaoop = connection.prepareStatement(query);
-						pstaoop.execute();
-						pstaoop.close();
-						break;
-					}
-				}catch(SQLException sqlException) {
-			    	   sqlException.printStackTrace();
-			    }
+
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+			System.out.println("DB Connect!!");
+		}catch(ClassNotFoundException ex){
+			System.out.println(ex.getMessage());
+		}catch(SQLException ex) {
+			System.out.println("SQLException: " + ex.getMessage());
+		}
+
+		try {
+			String query = null;
+			if(s.getName() == "web") {
+				query = "SELECT * FROM WEBPROG;";
+				PreparedStatement pst = connection.prepareStatement(query);
+				ResultSet rs = pst.executeQuery();
+
+				while(rs.next()) {
+					Student student = new Student(rs.getString(1), Integer.parseInt(rs.getString(2)), rs.getString(3),
+							rs.getString(4));
+					s.addStudent(student);
+					s.addScore(Integer.parseInt(rs.getString(2)), Integer.parseInt(rs.getString(5)), Integer.parseInt(rs.getString(6)),
+							Integer.parseInt(rs.getString(7)), Integer.parseInt(rs.getString(8)), Integer.parseInt(rs.getString(9)), 
+							Integer.parseInt(rs.getString(10)));
+					s.addAttendence(Integer.parseInt(rs.getString(2)), Integer.parseInt(rs.getString(11)), Integer.parseInt(rs.getString(12)),
+							Integer.parseInt(rs.getString(13)), Integer.parseInt(rs.getString(14)), Integer.parseInt(rs.getString(15)),
+							Integer.parseInt(rs.getString(16)), Integer.parseInt(rs.getString(17)), Integer.parseInt(rs.getString(18)),
+							Integer.parseInt(rs.getString(19)), Integer.parseInt(rs.getString(20)), Integer.parseInt(rs.getString(21)),
+							Integer.parseInt(rs.getString(22)), Integer.parseInt(rs.getString(23)), Integer.parseInt(rs.getString(24)),
+							Integer.parseInt(rs.getString(25)), Integer.parseInt(rs.getString(26)));
+				}
+				pst.close();
+				rs.close();
+			}else if(s.getName() == "oop") {
+				query = "SELECT * FROM OOP;";
+				PreparedStatement pst = connection.prepareStatement(query);
+				ResultSet rs = pst.executeQuery();
+
+				while(rs.next()) {
+					Student student = new Student(rs.getString(1), Integer.parseInt(rs.getString(2)), rs.getString(3),
+							rs.getString(4));
+					s.addStudent(student);
+					s.addScore(Integer.parseInt(rs.getString(2)), Integer.parseInt(rs.getString(5)), Integer.parseInt(rs.getString(6)),
+							Integer.parseInt(rs.getString(7)), Integer.parseInt(rs.getString(8)), Integer.parseInt(rs.getString(9)), 
+							Integer.parseInt(rs.getString(10)));
+					s.addAttendence(Integer.parseInt(rs.getString(2)), Integer.parseInt(rs.getString(11)), Integer.parseInt(rs.getString(12)),
+							Integer.parseInt(rs.getString(13)), Integer.parseInt(rs.getString(14)), Integer.parseInt(rs.getString(15)),
+							Integer.parseInt(rs.getString(16)), Integer.parseInt(rs.getString(17)), Integer.parseInt(rs.getString(18)),
+							Integer.parseInt(rs.getString(19)), Integer.parseInt(rs.getString(20)), Integer.parseInt(rs.getString(21)),
+							Integer.parseInt(rs.getString(22)), Integer.parseInt(rs.getString(23)), Integer.parseInt(rs.getString(24)),
+							Integer.parseInt(rs.getString(25)), Integer.parseInt(rs.getString(26)));
+				}
+				pst.close();
+				rs.close();
+			}else if(s.getName() == "aoop") {
+				query = "SELECT * FROM AOOP;";
+				PreparedStatement pst = connection.prepareStatement(query);
+				ResultSet rs = pst.executeQuery();
+
+				while(rs.next()) {
+					Student student = new Student(rs.getString(1), Integer.parseInt(rs.getString(2)), rs.getString(3),
+							rs.getString(4));
+					s.addStudent(student);
+					s.addScore(Integer.parseInt(rs.getString(2)), Integer.parseInt(rs.getString(5)), Integer.parseInt(rs.getString(6)),
+							Integer.parseInt(rs.getString(7)), Integer.parseInt(rs.getString(8)), Integer.parseInt(rs.getString(9)), 
+							Integer.parseInt(rs.getString(10)));
+					s.addAttendence(Integer.parseInt(rs.getString(2)), Integer.parseInt(rs.getString(11)), Integer.parseInt(rs.getString(12)),
+							Integer.parseInt(rs.getString(13)), Integer.parseInt(rs.getString(14)), Integer.parseInt(rs.getString(15)),
+							Integer.parseInt(rs.getString(16)), Integer.parseInt(rs.getString(17)), Integer.parseInt(rs.getString(18)),
+							Integer.parseInt(rs.getString(19)), Integer.parseInt(rs.getString(20)), Integer.parseInt(rs.getString(21)),
+							Integer.parseInt(rs.getString(22)), Integer.parseInt(rs.getString(23)), Integer.parseInt(rs.getString(24)),
+							Integer.parseInt(rs.getString(25)), Integer.parseInt(rs.getString(26)));
+				}
+				pst.close();
+				rs.close();
 			}
-		};
-		
-		setLayout(new BorderLayout(10, 10));
-		
-		JPanel panel = new JPanel(new FlowLayout(FlowLayout.CENTER, 10, 10));
-		
-		JButton web = new JButton("web");
-		JButton oop = new JButton("oop");
-		JButton aoop = new JButton("aoop");
-		
-		web.addActionListener(l);
-		oop.addActionListener(l);
-		aoop.addActionListener(l);
-		
-		panel.add(web);
-		panel.add(oop);
-		panel.add(aoop);
-		
-		add(panel, BorderLayout.CENTER);
-		
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setSize(100, 150);
-		setVisible(true);
-		
+
+		}catch(SQLException sqlException) {
+			sqlException.printStackTrace();
+		}
 	}
- 
 }
