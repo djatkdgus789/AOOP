@@ -71,7 +71,7 @@ public class Subject {
 		ratio[6] = D;
 		ratio[7] = F;
 	}
-	// 점수 반영비율 수정
+	// 점수 반영비율 수정 
 	public void changeWeight(int mid, int last, int assign, int quiz, int pres, int report, int attend) {
 		weight[0] = mid;
 		weight[1] = last;

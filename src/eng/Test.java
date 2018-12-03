@@ -6,7 +6,7 @@ public class Test {
 
 		// TODO Auto-generated method stub
 		Frame f = new Frame();
-		f.s = f.java.get("web");
+//		f.s = f.java.get("web");
 
 //		Student s = new Student("엄상", 1, "1", "reqqer");
 //		f.s.addStudent(s);
@@ -30,9 +30,6 @@ public class Test {
 		// System.out.println(f.s.getAverofTotal() + f.s.getRank(60152208) +
 		// f.s.getRank(60152215) + f.s.getRank(60171523));
 		// f.s.sort_Std_num_Ascending();
-		f.s.view("web");
-
-
 		f.s.view("web");
 		f.s.viewAttend();
 	}

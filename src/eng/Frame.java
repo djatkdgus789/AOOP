@@ -38,6 +38,8 @@ public class Frame extends JFrame implements ActionListener {
 		java.put("web", new Subject("web"));
 		java.put("oop", new Subject("oop"));
 		java.put("aoop", new Subject("aoop"));
+		this.s = java.get("web");
+		tf_current_subj.setText("WEBPROG");
 		setTitle("aoop proj ");
 		setSize(550, 800);
 		setLayout(new BorderLayout());
