@@ -2,21 +2,21 @@ package eng;
 
 //출석을 관리.
 public class Attend {
-	private static final int ABSENCE = -3;
-	private static final int lATE = -1;
-	private static final int ATTENDANCE = 0;
+	private static final int ABSENCE = -3; //결석 점수 
+	private static final int lATE = -1; // 지각 점수 
+	private static final int ATTENDANCE = 0; // 출석 
 
 	private int attend;
 	private int i1,i2,i3,i4,i5,i6,i7,i8,i9,i10,i11,i12,i13,i14,i15,i16;
 
 	// 출석 생성자 기본 16주
 	Attend() {
-		attend = 0;
+		attend = 100;
 	}
 	// 출석입력,수정 F001, F002
 	public void check(int i1, int i2, int i3, int i4, int i5, int i6, int i7, int i8, int i9, int i10, int i11, int i12,
 			int i13, int i14, int i15, int i16) {
-		attend = 0;
+		attend = 100;
 		System.out.println(attend);
 		attend += i1;
 		attend += i2;

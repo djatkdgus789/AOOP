@@ -6,7 +6,7 @@ public class Test {
 
 		// TODO Auto-generated method stub
 		Frame f = new Frame();
-		f.s = f.java.get("web");
+//		f.s = f.java.get("web");
 
 //		Student s = new Student("엄상", 1, "1", "reqqer");
 //		f.s.addStudent(s);

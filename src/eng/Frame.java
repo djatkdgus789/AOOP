@@ -38,6 +38,8 @@ public class Frame extends JFrame implements ActionListener {
 		java.put("web", new Subject("web"));
 		java.put("oop", new Subject("oop"));
 		java.put("aoop", new Subject("aoop"));
+		this.s = java.get("web");
+		tf_current_subj.setText("WEBPROG");
 		setTitle("aoop proj ");
 		setSize(550, 800);
 		setLayout(new BorderLayout());
@@ -275,20 +277,28 @@ public class Frame extends JFrame implements ActionListener {
 		case "Save DB":
 			System.out.println("Save DB");
 			new DBWrite(s);
-      break;
+			this.view();
+
+			break;
 
 		case "Load DB":
 			System.out.println("Load DB");
 			new DBLoad(s);
-      break;
-		
+			this.view();
+
+			break;
+      
 		case "Input CSV":
 			new FileRead(s);
+			this.view();
+
 			break;
 			
 		case "Save CSV":
 			System.out.println("Input CSV");
 			new FileWrite(s);
+			this.view();
+
 			break;
 
 		case "Chgweight":
