@@ -248,6 +248,7 @@ public class Frame extends JFrame implements ActionListener {
 
 		switch (mi.getText()) {
 
+		// f008
 		case "Exit":
 			System.exit(0);
 			break;
@@ -273,7 +274,7 @@ public class Frame extends JFrame implements ActionListener {
 			this.view();
 
 			break;
-
+			// f0003
 		case "Save DB":
 			System.out.println("Save DB");
 			new DBWrite(s);
@@ -281,126 +282,144 @@ public class Frame extends JFrame implements ActionListener {
 
 			break;
 
+			// f0004
 		case "Load DB":
 			System.out.println("Load DB");
 			new DBLoad(s);
 			this.view();
 
 			break;
-      
+			// f0005
 		case "Input CSV":
 			new FileRead(s);
 			this.view();
 
 			break;
-			
+			// f006
 		case "Save CSV":
 			System.out.println("Input CSV");
 			new FileWrite(s);
 			this.view();
 
 			break;
-
+			
 		case "Chgweight":
 			new Chgweight(s);
 			break;
-
+			// f020
 		case "Chgratio":
 			new Chgratio(s);
 			break;
-
+			//f012 //f015 //f016
 		case "Enter stu":
 			new Enterstu(s);
 			break;
-
+			//f013
 		case "Modify stu":
 			new Modifystu(s);
 			break;
-
+			//f017
 		case "Delete stu":
 			new Deletestu(s);
 			break;
+			
+			// f0001
 		case "Enter Attend":
 			new EnterAttend(s);
 			break;
 
+			// f0002
 		case "Modify Attend":
 			new ModifyAttend(s);
 			break;
 
+			// f007 //f017
 		case "Enter score":
 			new Enterscore(s);
 			break;
 
+			// f018
 		case "Modify score":
 			new Modifyscore(s);
 			break;
-
+			// f019
 		case "Calc grade":
 			new Calcgrade(s);
 			break;
+			// f021
 		case "Rank":
 			new Rank(s);
 			break;
+			// f022
 		case "Average of Total":
 			tf_selectedMenu.setText("총점의 평균 : " + Double.toString(s.getAverofTotal()));
 			break;
-
+			// f029
 		case "Average of Mid":
 			tf_selectedMenu.setText("중간고사 평균 : " + Double.toString(s.calAverofMid()));
 			break;
-
+			// f030
 		case "Average of Last":
 			tf_selectedMenu.setText("기말고사 평균 : " + Double.toString(s.calAverofLast()));
 			break;
-
+			// f031
 		case "Average of Quiz":
 			tf_selectedMenu.setText("퀴즈 평균 : " + Double.toString(s.calAverofQuiz()));
 			break;
-
+			// f032
 		case "Average of Pres":
 			tf_selectedMenu.setText("발표점수 평균 : " + Double.toString(s.calAverofPresentation()));
 			break;
-
+			// f033
 		case "Average of Report":
 			tf_selectedMenu.setText("보고서점수 평균 : " + Double.toString(s.calAverofReport()));
 			break;
+			// f023
 		case "Deviation":
 			double devi = Double.parseDouble(String.format("%.2f",s.calDevi()));
 			tf_selectedMenu.setText("표준편차 : " + Double.toString(devi));
 			break;
 			
+			// f025
 		case "Sort ascending by Total Score":
 			s.sort_total_Score_Ascending();
 			this.view();
 			break;
-			
+			// f028
 		case "Sort descending by Total Score":
 			s.sort_total_Score_Descending();
 			this.view();
 			break;
 			
+			// f026
 		case "Sort by stunum":
 			s.sort_Std_num_Ascending();
 			this.view();
 			break;
+			// f027
+		case "Check %":
+			
+			break;
 
+			
+			// 아래부터 f024
+			// f034
 		case "Graph for mid":
 			new Graph(s,1);
 			break;
-
+			// f035
 		case "Graph for last":
 			new Graph(s,2);
 			break;
-			
+			// f036
 		case "Graph for quiz":
 			new Graph(s,3);
 			break;
-			
+			// f037
 		case "Graph for pres":
 			new Graph(s,4);
 			break;
-		
+			// 	f038
 		case "Graph for report":
 			new Graph(s,5);
 		
