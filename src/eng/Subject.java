@@ -7,7 +7,7 @@ import java.util.Iterator;
 public class Subject {
 	private String name; // 과목 이
 	private int[] ratio = { 15, 15, 15, 15, 10, 10, 10, 10 }; // 학점 비율
-	private int[] weight = { 25, 25, 10, 10, 10, 10, 10 }; // 점수 가중
+	private int[] weight = { 25, 25, 10, 10, 10, 10, 10 }; // 점수 가중치 
 
 	public ArrayList<Student> std_list; // 학생들이 저장되어 있는 ArrayList
 
@@ -16,6 +16,50 @@ public class Subject {
 		this.name = name;
 		this.std_list = new ArrayList<Student>();
 	}
+	// 이름 getter
+	public String getName() {
+		return name;
+	}
+	// 비율 getter
+	public int[] getRatio() {
+		return ratio;
+	}
+	// 비율 setter
+	public void setRatio(int[] ratio) {
+		this.ratio = ratio;
+	}
+	// 가중치 getter
+	public int[] getWeight() {
+		return weight;
+	}
+	// 가중치 setter
+	public void setWeight(int[] weight) {
+		this.weight = weight;
+	}
+	
+	// 등수 getter
+	public int getRank(int std_num) {
+		int temp = 0;
+		for (Student student : std_list) {
+			if (student.getStd_num() == std_num) {
+				return student.getRank();
+			}
+		}
+		return temp;
+	}
+
+	// 19 : 해당 학생의 등급을 반환
+	public String getStdGrade(int std_num) {
+		String grade = "";
+		for (Student student : std_list) {
+			if (student.getStd_num() == std_num) {
+				return student.getGrade();
+			}
+		}
+		return grade;
+	}
+
+
 	// 성적 비율 수정
 	public void changeRatio(int A_plus, int A_zero, int B_plus, int B_zero, int C_plus, int C_zero, int D, int F) {
 		ratio[0] = A_plus;
@@ -95,9 +139,6 @@ public class Subject {
 		calRank();
 	}
 
-	public String getName() {
-		return name;
-	}
 
 	// 평균 getter
 
@@ -162,16 +203,6 @@ public class Subject {
 			System.out.println(temp.getTotal());
 			System.out.println(temp.getRank());
 		}
-	}
-
-	public int getRank(int std_num) {
-		int temp = 0;
-		for (Student student : std_list) {
-			if (student.getStd_num() == std_num) {
-				return student.getRank();
-			}
-		}
-		return temp;
 	}
 
 	// 등급 계산 15, 15, 15, 15, 10, 10, 10, 10
@@ -335,37 +366,5 @@ public class Subject {
 		});
 	}
 
-	public void viewAttend() {
-		/*
-		 * std_list.forEach((x)->{ for(int i : x.score.getAttend()) {
-		 * System.out.print(i); }; System.out.println(x.attend.getScore()); });
-		 */
-	}
 
-	public int[] getWeight() {
-		return weight;
-	}
-
-	public void setWeight(int[] weight) {
-		this.weight = weight;
-	}
-
-	public int[] getRatio() {
-		return ratio;
-	}
-
-	public void setRatio(int[] ratio) {
-		this.ratio = ratio;
-	}
-
-	// 19 : 해당 학생의 등급을 반환
-	public String getStdGrade(int std_num) {
-		String grade = "";
-		for (Student student : std_list) {
-			if (student.getStd_num() == std_num) {
-				return student.getGrade();
-			}
-		}
-		return grade;
-	}
 }
