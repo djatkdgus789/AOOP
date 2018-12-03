@@ -130,31 +130,31 @@ class DrawingPanel extends JPanel {
 				if(temp >= 0 && temp <1) {
 					score0_9++;
 				}
-				else if(temp >= 1 && temp <2) {
+				else if(temp >= 10 && temp <20) {
 					score10_19++;
 				}
-				else if(temp >= 2 && temp <3) {
+				else if(temp >= 20 && temp <30) {
 					score20_29++;
 				}
-				else if(temp >= 3 && temp <4) {
+				else if(temp >= 30 && temp <40) {
 					score30_39++;
 				}
-				else if(temp >= 4 && temp <5) {
+				else if(temp >= 40 && temp <50) {
 					score40_49++;
 				}
-				else if(temp >= 5 && temp <6) {
+				else if(temp >= 50 && temp <60) {
 					score50_59++;
 				}
-				else if(temp >= 6 && temp <7) {
+				else if(temp >= 60 && temp <70) {
 					score60_69++;
 				}			
-				else if(temp >= 7 && temp <8) {
+				else if(temp >= 70 && temp <80) {
 					score70_79++;
 				}
-				else if(temp >= 8 && temp <9) {
+				else if(temp >= 80 && temp <90) {
 					score80_89++;
 				}
-				else if(temp >= 9 && temp <=10) {
+				else if(temp >= 90 && temp <=100) {
 					score90_100++;
 				}
 			}
@@ -165,31 +165,31 @@ class DrawingPanel extends JPanel {
 				if(temp >= 0 && temp <1) {
 					score0_9++;
 				}
-				else if(temp >= 1 && temp <2) {
+				else if(temp >= 10 && temp <20) {
 					score10_19++;
 				}
-				else if(temp >= 2 && temp <3) {
+				else if(temp >= 20 && temp <30) {
 					score20_29++;
 				}
-				else if(temp >= 3 && temp <4) {
+				else if(temp >= 30 && temp <40) {
 					score30_39++;
 				}
-				else if(temp >= 4 && temp <5) {
+				else if(temp >= 40 && temp <50) {
 					score40_49++;
 				}
-				else if(temp >= 5 && temp <6) {
+				else if(temp >= 50 && temp <60) {
 					score50_59++;
 				}
-				else if(temp >= 6 && temp <7) {
+				else if(temp >= 60 && temp <70) {
 					score60_69++;
 				}			
-				else if(temp >= 7 && temp <8) {
+				else if(temp >= 70 && temp <80) {
 					score70_79++;
 				}
-				else if(temp >= 8 && temp <9) {
+				else if(temp >= 80 && temp <90) {
 					score80_89++;
 				}
-				else if(temp >= 9 && temp <=10) {
+				else if(temp >= 90 && temp <=100) {
 					score90_100++;
 				}
 			}
@@ -201,31 +201,31 @@ class DrawingPanel extends JPanel {
 				if(temp >= 0 && temp <1) {
 					score0_9++;
 				}
-				else if(temp >= 1 && temp <2) {
+				else if(temp >= 10 && temp <20) {
 					score10_19++;
 				}
-				else if(temp >= 2 && temp <3) {
+				else if(temp >= 20 && temp <30) {
 					score20_29++;
 				}
-				else if(temp >= 3 && temp <4) {
+				else if(temp >= 30 && temp <40) {
 					score30_39++;
 				}
-				else if(temp >= 4 && temp <5) {
+				else if(temp >= 40 && temp <50) {
 					score40_49++;
 				}
-				else if(temp >= 5 && temp <6) {
+				else if(temp >= 50 && temp <60) {
 					score50_59++;
 				}
-				else if(temp >= 6 && temp <7) {
+				else if(temp >= 60 && temp <70) {
 					score60_69++;
 				}			
-				else if(temp >= 7 && temp <8) {
+				else if(temp >= 70 && temp <80) {
 					score70_79++;
 				}
-				else if(temp >= 8 && temp <9) {
+				else if(temp >= 80 && temp <90) {
 					score80_89++;
 				}
-				else if(temp >= 9 && temp <=10) {
+				else if(temp >= 90 && temp <=100) {
 					score90_100++;
 				}
 			}
