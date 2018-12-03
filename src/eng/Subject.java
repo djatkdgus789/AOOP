@@ -339,32 +339,32 @@ public class Subject {
 
 	}
 
-	public void view(String subj) {
-		std_list.forEach((x) -> {
-
-			System.out.print(name);
-			System.out.print("    ");
-			System.out.print(x.getName());
-			System.out.print("    ");
-			System.out.print(x.getStd_num());
-			System.out.print("    ");
-			System.out.print(x.getTeam());
-			System.out.print("    ");
-			System.out.println(x.getRank());
-
-		});
-		std_list.forEach((x) -> {
-			System.out.print(x.getScore().getMid());
-			System.out.print(x.getScore().getLast());
-			System.out.print(x.getScore().getAssignment());
-			System.out.print(x.getScore().getQuiz());
-			System.out.print(x.getScore().getPresentation());
-			System.out.print(x.getScore().getReport());
-			System.out.print(x.getAttend().getAttend());
-			System.out.println(x.getTotal());
-
-		});
-	}
+//	public void view(String subj) {
+//		std_list.forEach((x) -> {
+//
+//			System.out.print(name);
+//			System.out.print("    ");
+//			System.out.print(x.getName());
+//			System.out.print("    ");
+//			System.out.print(x.getStd_num());
+//			System.out.print("    ");
+//			System.out.print(x.getTeam());
+//			System.out.print("    ");
+//			System.out.println(x.getRank());
+//
+//		});
+//		std_list.forEach((x) -> {
+//			System.out.print(x.getScore().getMid());
+//			System.out.print(x.getScore().getLast());
+//			System.out.print(x.getScore().getAssignment());
+//			System.out.print(x.getScore().getQuiz());
+//			System.out.print(x.getScore().getPresentation());
+//			System.out.print(x.getScore().getReport());
+//			System.out.print(x.getAttend().getAttend());
+//			System.out.println(x.getTotal());
+//
+//		});
+//	}
 
 
 }

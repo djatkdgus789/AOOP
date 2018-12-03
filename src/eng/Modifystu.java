@@ -91,7 +91,6 @@ public class Modifystu {
 						x.setName(name);
 						x.setTeam(team);
 						x.setUnique(unique);
-						s.view(s.getName());
 					}
 				});
 			}
