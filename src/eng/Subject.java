@@ -340,6 +340,15 @@ public class Subject {
 	}
 
 
-
+	public String check(int std_num) {
+		for (Student student : std_list) {
+			if(student.getStd_num() == std_num) {
+				double rank = student.getRank();
+				double size = std_list.size();
+				return Double.toString(rank/size);
+			}
+		}
+		return "학생이 없습니다";
+	}
 
 }
