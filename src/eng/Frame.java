@@ -380,7 +380,7 @@ public class Frame extends JFrame implements ActionListener {
 			break;
 			// F027
 		case "Check %":
-			
+			new CheckPer(s);
 			break;
 
 			
