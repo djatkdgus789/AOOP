@@ -20,7 +20,7 @@ public class CheckPer {
 		JLabel jl_grade = new JLabel();
 		JLabel jl_rank = new JLabel("Percent");
 		JTextField tf_stunum_enter = new JTextField("", 7); //
-		JTextField tf_grade = new JTextField("", 3); //
+		JTextField tf_grade = new JTextField("", 5); //
 		JButton rank = new JButton("%");
 
 		JPanel p1_enter = new JPanel(new FlowLayout());
