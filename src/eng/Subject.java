@@ -85,7 +85,6 @@ public class Subject {
 
 	// 학생 추가 F012
 	public void addStudent(Student s) {
-		System.out.println("학번 중복" + s.getStd_num());
 		this.std_list.forEach(x -> {
 			if(x.getStd_num() == s.getStd_num()) {
 				System.out.println("학번 중복" + s.getStd_num());
@@ -121,12 +120,6 @@ public class Subject {
 
 		});
 		calRank();
-		/*
-		 * Student student = new Student(name, num, team, unique) s.setMid(, (mid));
-		 * s.setLast(, (last)); s.setAssign(, (assign)); s.setQuiz(, (quiz));
-		 * s.setPresent(, pres); s.setReport(, report); //s.setAttend(, attend);
-		 * s.setRank(, 0); this.calTotal(std_num); this.calRank();
-		 */
 	}
 
 	public void addAttendence(int std_num, int i1, int i2, int i3, int i4, int i5, int i6, int i7,
@@ -199,9 +192,6 @@ public class Subject {
 			}
 			//찾은 학생의 등수를 설정 
 			temp.setRank(i+1);
-			System.out.println(temp.getName());
-			System.out.println(temp.getTotal());
-			System.out.println(temp.getRank());
 		}
 	}
 
