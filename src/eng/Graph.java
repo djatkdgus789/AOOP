@@ -56,7 +56,6 @@ class DrawingPanel extends JPanel {
 		case 1:
 			for (Student std : s.std_list) {
 				int temp=std.getScore().getMid();
-				System.out.println("temp "+temp);
 				if(temp >= 0 && temp <10) {
 					score0_9++;
 				}

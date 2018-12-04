@@ -189,7 +189,6 @@ public class Frame extends JFrame implements ActionListener {
 		JPanel p1 = new JPanel(new FlowLayout());
 		JPanel p1_1 = new JPanel(new FlowLayout());
 		JPanel p1_2 = new JPanel(new FlowLayout());
-		//		JPanel p1_3 = new JPanel(new FlowLayout());
 		JLabel jl_current_subj = new JLabel("현재 작업 중인 과목 ");
 		JLabel selectedMenu = new JLabel("선택한 메뉴의 결과값");
 
@@ -199,37 +198,20 @@ public class Frame extends JFrame implements ActionListener {
 		p1_1.add(tf_current_subj);
 		tf_current_subj.setEnabled(false);
 
-		//		p1.add(p1_2);
 		p1_1.add(selectedMenu);
 		p1_1.add(tf_selectedMenu);
 		tf_selectedMenu.setEnabled(false);
-
-
-
-		//		JPanel p2 = new JPanel();
-		//		add(p2);
-		//		p2.add(new JLabel("2"));
-		//
-		//		
-		// JPanel p3 = new JPanel();
-		// add(p3);
 
 		Border lineBorder = BorderFactory.createLineBorder(Color.BLACK, 1);
 		model = new DefaultListModel<>();
 		studentList = new JList<String>(model);
 		JScrollPane jp1 = new JScrollPane(studentList);
 		studentList.setVisibleRowCount(30);
-		// studentList.setFont(f2);
 		studentList.setBorder(lineBorder);
 		model.addElement("학생의 성적!!!");
 		model.addElement("해당 과목 메뉴를 누르면 갱신됩니다.");
 		model.addElement("--------------------------------------------------------------");
 		add(jp1, BorderLayout.CENTER);
-
-		//		JPanel p4 = new JPanel();
-		//		add(p4); 
-		//		p4.add(new JLabel("그래프 "));
-
 	}
 	public void view() {
 		model.removeAllElements();
@@ -248,7 +230,7 @@ public class Frame extends JFrame implements ActionListener {
 
 		switch (mi.getText()) {
 
-		// f008
+		// F008
 		case "Exit":
 			System.exit(0);
 			break;
@@ -259,7 +241,7 @@ public class Frame extends JFrame implements ActionListener {
 			this.view();
 
 			break;
-			// f0007
+			// F0007
 		case "AOOP":
 			tf_current_subj.setText("AOOP");
 			s = java.get("aoop");
@@ -267,14 +249,14 @@ public class Frame extends JFrame implements ActionListener {
 
 
 			break;
-			// f0008
+			// F0008
 		case "OOP":
 			tf_current_subj.setText("OOP");
 			s = java.get("oop");
 			this.view();
 
 			break;
-			// f0003
+			// F0003
 		case "Save DB":
 			System.out.println("Save DB");
 			new DBWrite(s);
@@ -282,20 +264,20 @@ public class Frame extends JFrame implements ActionListener {
 
 			break;
 
-			// f0004
+			// F0004
 		case "Load DB":
 			System.out.println("Load DB");
 			new DBLoad(s);
 			this.view();
 
 			break;
-			// f0005
+			// F0005
 		case "Input CSV":
 			new FileRead(s);
 			this.view();
 
 			break;
-			// f006
+			// F006
 		case "Save CSV":
 			System.out.println("Input CSV");
 			new FileWrite(s);
@@ -306,120 +288,120 @@ public class Frame extends JFrame implements ActionListener {
 		case "Chgweight":
 			new Chgweight(s);
 			break;
-			// f020
+			// F020
 		case "Chgratio":
 			new Chgratio(s);
 			break;
-			//f012 //f015 //f016
+			//F012 //F015 //F016
 		case "Enter stu":
 			new Enterstu(s);
 			break;
-			//f013
+			//F013
 		case "Modify stu":
 			new Modifystu(s);
 			break;
-			//f017
+			//F017
 		case "Delete stu":
 			new Deletestu(s);
 			break;
 			
-			// f0001
+			// F0001
 		case "Enter Attend":
 			new EnterAttend(s);
 			break;
 
-			// f0002
+			// F0002
 		case "Modify Attend":
 			new ModifyAttend(s);
 			break;
 
-			// f007 //f017
+			// F007 //F017
 		case "Enter score":
 			new Enterscore(s);
 			break;
 
-			// f018
+			// F018
 		case "Modify score":
 			new Modifyscore(s);
 			break;
-			// f019
+			// F019
 		case "Calc grade":
 			new Calcgrade(s);
 			break;
-			// f021
+			// F021
 		case "Rank":
 			new Rank(s);
 			break;
-			// f022
+			// F022
 		case "Average of Total":
 			tf_selectedMenu.setText("총점의 평균 : " + Double.toString(s.getAverofTotal()));
 			break;
-			// f029
+			// F029
 		case "Average of Mid":
 			tf_selectedMenu.setText("중간고사 평균 : " + Double.toString(s.calAverofMid()));
 			break;
-			// f030
+			// F030
 		case "Average of Last":
 			tf_selectedMenu.setText("기말고사 평균 : " + Double.toString(s.calAverofLast()));
 			break;
-			// f031
+			// F031
 		case "Average of Quiz":
 			tf_selectedMenu.setText("퀴즈 평균 : " + Double.toString(s.calAverofQuiz()));
 			break;
-			// f032
+			// F032
 		case "Average of Pres":
 			tf_selectedMenu.setText("발표점수 평균 : " + Double.toString(s.calAverofPresentation()));
 			break;
-			// f033
+			// F033
 		case "Average of Report":
 			tf_selectedMenu.setText("보고서점수 평균 : " + Double.toString(s.calAverofReport()));
 			break;
-			// f023
+			// F023
 		case "Deviation":
 			double devi = Double.parseDouble(String.format("%.2f",s.calDevi()));
 			tf_selectedMenu.setText("표준편차 : " + Double.toString(devi));
 			break;
 			
-			// f025
+			// F025
 		case "Sort ascending by Total Score":
 			s.sort_total_Score_Ascending();
 			this.view();
 			break;
-			// f028
+			// F028
 		case "Sort descending by Total Score":
 			s.sort_total_Score_Descending();
 			this.view();
 			break;
 			
-			// f026
+			// F026
 		case "Sort by stunum":
 			s.sort_Std_num_Ascending();
 			this.view();
 			break;
-			// f027
+			// F027
 		case "Check %":
 			
 			break;
 
 			
-			// 아래부터 f024
-			// f034
+			// 아래부터 F024
+			// F034
 		case "Graph for mid":
 			new Graph(s,1);
 			break;
-			// f035
+			// F035
 		case "Graph for last":
 			new Graph(s,2);
 			break;
-			// f036
+			// F036
 		case "Graph for quiz":
 			new Graph(s,3);
 			break;
-			// f037
+			// F037
 		case "Graph for pres":
 			new Graph(s,4);
 			break;
-			// 	f038
+			// 	F038
 		case "Graph for report":
 			new Graph(s,5);
 		
