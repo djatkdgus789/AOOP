@@ -2,6 +2,7 @@ package eng;
 
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -44,6 +45,26 @@ public class Modifyscore {
 		p3_modifyscore.add(jl_std_num);
 		p3_modifyscore.add(tf_std_num);
 		p3_modifyscore.add(modifyscore);
+		
+		ActionListener listener = l -> {
+			try {
+				if (l.getSource() == modifyscore) {
+					int stunum = Integer.parseInt(tf_std_num.getText());
+					int mid = Integer.parseInt(tf_mid_modify.getText());
+					int last = Integer.parseInt(tf_last_modify.getText());
+					int assign = Integer.parseInt(tf_assign_modify.getText());
+					int quiz = Integer.parseInt(tf_quiz_modify.getText());
+					int pres = Integer.parseInt(tf_pres_modify.getText());
+					int report = Integer.parseInt(tf_report_modify.getText());
 
+					s.addScore(stunum, mid, last, assign, quiz, pres, report);
+				}
+			} catch (Exception e) {
+
+			}
+		};
+		modifyscore.addActionListener(listener);
 	}
+
+
 }
