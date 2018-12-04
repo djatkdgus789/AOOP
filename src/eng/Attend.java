@@ -30,7 +30,7 @@ public class Attend {
 		this.i16 = i16;
 		
 		attend = 100;
-		System.out.println(attend);
+		
 		attend += i1;
 		attend += i2;
 		attend += i3;
