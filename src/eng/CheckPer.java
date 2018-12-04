@@ -39,7 +39,7 @@ public class CheckPer {
 			try {
 				if (l.getSource() == rank) {
 					int stunum = Integer.parseInt(tf_stunum_enter.getText());
-					 tf_grade.setText(Integer.toString(s.getRank(stunum)));
+					 tf_grade.setText(s.check(stunum)+"%");
 				}
 			} catch (Exception e) {
 
