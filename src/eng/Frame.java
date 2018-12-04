@@ -258,7 +258,6 @@ public class Frame extends JFrame implements ActionListener {
 			break;
 			// F0003
 		case "Save DB":
-			System.out.println("Save DB");
 			new DBWrite(s);
 			this.view();
 
@@ -266,7 +265,6 @@ public class Frame extends JFrame implements ActionListener {
 
 			// F0004
 		case "Load DB":
-			System.out.println("Load DB");
 			new DBLoad(s);
 			this.view();
 
@@ -279,7 +277,6 @@ public class Frame extends JFrame implements ActionListener {
 			break;
 			// F006
 		case "Save CSV":
-			System.out.println("Input CSV");
 			new FileWrite(s);
 			this.view();
 
