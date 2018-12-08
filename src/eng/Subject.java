@@ -130,6 +130,7 @@ public class Subject {
 			}
 		});
 		calRank();
+		calTotal(std_num);
 	}
 
 
@@ -194,6 +195,8 @@ public class Subject {
 			temp.setRank(i+1);
 		}
 	}
+	
+	
 
 	// 등급 계산 15, 15, 15, 15, 10, 10, 10, 10
 	public void calGrade(int std_num) {
@@ -262,7 +265,7 @@ public class Subject {
 	}
 
 	public double calAverofMid() {
-		int total_mid = 0;
+		int total_mid = 0;x
 		for (Student student : std_list) {
 			total_mid += student.getScore().getMid();
 		}
