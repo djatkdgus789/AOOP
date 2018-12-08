@@ -265,7 +265,7 @@ public class Subject {
 	}
 
 	public double calAverofMid() {
-		int total_mid = 0;x
+		int total_mid = 0;
 		for (Student student : std_list) {
 			total_mid += student.getScore().getMid();
 		}
