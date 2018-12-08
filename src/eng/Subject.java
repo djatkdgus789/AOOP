@@ -265,7 +265,7 @@ public class Subject {
 	}
 
 	public double calAverofMid() {
-		int total_mid = 0;x
+		int total_mid = 0;
 		for (Student student : std_list) {
 			total_mid += student.getScore().getMid();
 		}
@@ -338,7 +338,9 @@ public class Subject {
 			if(student.getStd_num() == std_num) {
 				double rank = student.getRank();
 				double size = std_list.size();
-				return Double.toString(rank/size*100);
+				double per = Double.parseDouble(String.format("%.2f",rank/size*100));
+
+				return Double.toString(per);
 			}
 		}
 		return "학생이 없습니다";
